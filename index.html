@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="Home-section.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="图标库/font_4941147_qkqjcyouhu/iconfont.css">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="header-left">
+        <img src="img/img.png" alt="">
+    </div>
+    <div class="header-right">
+        <div>
+            <a href="index.html" data-nav="Index">Home</a>
+            <a href="Data-Browse.html" data-nav="data-browse">Data-Browse</a>
+            <a href="Search.html">Search</a>
+            <a>
+                Analysis
+                <span></span>
+            </a>
+            <a>Genome-Browse</a>
+            <a>Download</a>
+            <a>Statistics</a>
+            <a>Contact</a>
+            <a>Help</a>
+        </div>
+    </div>
+
+</header>
+<section>
+    <div class="box1">
+        <div class="left1">
+            <div style="margin-left:130px;">
+                <img src="img/img_1.png" alt="">
+            </div>
+            <p>A comprehensive Super-Enhancer database of human and mouse</p>
+            <div class="banner">
+                <!--                图片区域-->
+                <ul class="imgBox" id="imgBox">
+                    <li class="active"><img src="img/left1-1.png" alt=""></li>
+                    <li><img src="img/left1-2.png" alt=""></li>
+                    <li><img src="img/left1-3.png" alt=""></li>
+                    <li><img src="img/left1-4.png" alt=""></li>
+                </ul>
+                <!--                焦点区域-->
+                <ol class="foucs">
+                    <li data-i="0" data-name="point" class="active"></li>
+                    <li data-i="1" data-name="point"></li>
+                    <li data-i="2" data-name="point"></li>
+                    <li data-i="3" data-name="point"></li>
+                </ol>
+                <!--                作业切换按钮-->
+                <div class="left">&lt;</div>
+                <div class="right">&gt;</div>
+            </div>
+        </div>
+
+
+        <div class="right1">
+            <h2 class="center">What is SEdb 2.0?</h2>
+            <p class="p1">Super-enhancers are a large cluster of transcriptionally
+                active enhancers enriched in enhancer-associated chromatin
+                characteristics. Compared to typical enhancers, super-enhancers
+                are larger, exhibit higher transcription factor density, and
+                are frequently associated with key lineage-specific genes that
+                control cell state and differentiation in somatic cells.
+            </p>
+            <p class="p2">Here, we developed a comprehensive super-enhancer database of
+                human and mouse (SEdb 2.0, http://www.licpathway.net/sedb) that
+                aimed to provide a large number of available resources on human
+                and mouse super-enhancers. The database was annotated with potential
+                functions of super-enhancers in the TF-gene regulation. The current
+                version of SEdb documented a total of 1,717,744 SEs from 2,670
+                samples including 1,739 human samples and 931 mouse samples. Furthermore,
+                SEdb provides detailed genetic and epigenetic annotation information
+                on super-enhancers. Information includes common SNPs, motif changes,
+                expression quantitative trait locus (eQTL), risk SNPs, transcription factor
+                binding sites (TFBSs), CRISPR/Cas9 target sites, DNase I hypersensitivity
+                sites (DHSs), chromatin accessibility regions, methylation sites, chromatin
+                interactions regions and TADs. For in-depth analyses of super-enhancers, SEdb
+                will help elucidate super-enhancer-related functions and find potential biological
+                effects.
+            </p>
+        </div>
+
+        <hr style="height:2px;background-color:black;border:none;">
+    </div>
+    <div class="box2" style="--percentage:65;--color:blue;">
+        <div class="left" >
+            <p class="title"><i class="iconfont icon-tongyong-zhuzhuangtuhezhexiantuzuhe1">      </i>The increase in the dataset size of SEdb 3.0</p>
+            <div>
+                <div class="chart">
+                    <ol>
+                        <li class="active">
+                            <div id="left-main-chart1.1" class="chart-container"></div>
+                        </li>
+                        <li>
+                            <div id="left-main-chart1.2" class="chart-container"></div>
+                        </li>
+                        <li>
+                            <div id="left-main-chart1.3" class="chart-container"></div>
+                        </li>
+                        <li>
+                            <div class="chart-container">
+                                <p style="font-size:25px;">Data View</p>
+                                <table style="text-align:center;font-size:20px;border-spacing:10px;">
+                                    <tr>
+                                        <td>          </td>
+                                        <td>Human</td>
+                                        <td>Mouse</td>
+                                        <td>Arabidopsis</td>
+                                        <td>thaliana</td>
+                                        <td>Zea mays</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SEdb 1.0</td>
+                                        <td>541</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SEdb 2.0</td>
+                                        <td>1739</td>
+                                        <td>931</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SEdb 3.0</td>
+                                        <td>3389</td>
+                                        <td>1962</td>
+                                        <td>21</td>
+                                        <td>15</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </li>
+                    </ol>
+                    <ul>
+                        <li  class="active"><i class="iconfont icon-tubiao-zhuzhuangtu"></i></li>
+                        <li><i class="iconfont icon-zhexiantu-xianxing"></i></li>
+                        <li><i class="iconfont icon-duidietu"></i></li>
+                        <li class="data-view"><i class="iconfont icon-view"></i></li>
+                        <li class="refresh"><i class="iconfont icon-shuaxin"></i></li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <div>
+                <div class="chart">
+                    <ol>
+                        <li  class="active">
+                            <div id="left-main-chart2.1" class="chart-container"></div>
+                        </li>
+                        <li>
+                            <div id="left-main-chart2.2" class="chart-container"></div>
+                        </li>
+                        <li>
+                            <div id="left-main-chart2.3" class="chart-container"></div>
+                        </li>
+                        <li>
+                            <div class="chart-container">
+                                <p style="font-size:25px;">Data View</p>
+                                <table style="text-align:center;font-size:20px;border-spacing:10px;">
+                                    <tr>
+                                        <td>          </td>
+                                        <td>Human</td>
+                                        <td>Mouse</td>
+                                        <td>Arabidopsis</td>
+                                        <td>thaliana</td>
+                                        <td>Zea mays</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SEdb 1.0</td>
+                                        <td>331601</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SEdb 2.0</td>
+                                        <td>1167518</td>
+                                        <td>550226</td>
+                                        <td>0</td>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SEdb 3.0</td>
+                                        <td>2311855</td>
+                                        <td>1148665</td>
+                                        <td>4195</td>
+                                        <td>16357</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </li>
+                    </ol>
+                    <ul>
+                        <li class="active"><i class="iconfont icon-tubiao-zhuzhuangtu"></i></li>
+                        <li><i class="iconfont icon-zhexiantu-xianxing"></i></li>
+                        <li><i class="iconfont icon-duidietu"></i></li>
+                        <li><i class="iconfont icon-view"></i></li>
+                        <li class="refresh"><i class="iconfont icon-shuaxin"></i></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="right">
+                <p><i class="iconfont icon-xinzang">     </i>number of samples for each tissue type</p>
+
+            <div class="right-section">
+                <div class="container">
+                    <div id="chart-container1" class="pie"></div>
+                    <p>Human</p>
+                </div>
+
+                <div class="container">
+                    <div id="chart-container2" class="pie"></div>
+                    <p>Mouse</p>
+                </div>
+
+                <div class="container">
+                    <div id="chart-container3" class="pie"></div>
+                    <p>Arabidopsis_thaliana</p>
+                </div>
+
+                <div class="container">
+                    <div id="chart-container4" class="pie"></div>
+                    <p>Zea_mays</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--    轮播图-->
+    <script>
+        var imgs=document.querySelectorAll('.imgBox>li')
+        var points=document.querySelectorAll('.foucs>li')
+        var banner=document.querySelector('.banner')
+
+        //准备一个变量，表示当前是第几张，默认是0，因为默认显示的是素材0张
+        var index=0
+        //存储定时器
+        var timer=null
+        //书写一个切换一张的函数
+        //参数为true，切换下一张
+        //参数为false，切换上一张
+        //参数为数字，切换到指定索引的那一张
+        function changeOne(type){
+            //让当前在这一张消失
+            imgs[index].className=''
+            points[index].className=''
+            //根据type传递来的参数，来切换index的值
+            if (type===true){
+                index++
+            }else if(type===false){
+                index--
+            }else {
+                index=type
+            }
+            //判定index的边界值
+            if(index>=imgs.length){
+                index=0
+            }
+            if (index<0){
+                index=imgs.length-1
+            }
+            //让改变后的这一张显示出来
+            imgs[index].className='active'
+            points[index].className='active'
+        }
+        //启动轮播
+        function startAutoPlay(){
+            timer=setInterval(function(){
+                changeOne(true);
+            },2000);
+        }
+        //停止轮播
+        function stopAutoPlay(){
+            if(timer){
+                clearInterval(timer);
+                timer=null;
+            }
+        }
+        //初始化自动轮播
+        startAutoPlay();
+        //鼠标悬停暂停轮播
+        banner.addEventListener('mouseenter',function(){
+            stopAutoPlay();
+        });
+        //鼠标离开恢复轮播
+        banner.addEventListener('mouseleave',function(){
+            startAutoPlay();
+        });
+
+        //给轮播图区域盒子绑定点击事件
+        banner.onclick=function(e){
+            //判断点击的是左按钮
+            if(e.target.className==='left'){
+                console.log('点击的是左按键')
+                //切换上一张，调用changeOne方法传递参数为false
+                changeOne(false)
+            }
+            if(e.target.className==='right'){
+                console.log('点击的是右按键')
+                //切换下一张，调用changeOne方法传递参数为true
+                changeOne(true)
+            }
+            //判断点击的是焦点盒子
+            if(e.target.dataset.name==='point'){
+                console.log('点击的是焦点盒子')
+                //拿到自己记录的索引
+                var i=e.target.dataset.i-0
+                changeOne(i)
+            }
+        }
+
+    </script>
+
+    <!--    统计图-->
+    <script>
+        // 柱状图
+        function initBarChart(containerId,seriesData,yAxisFormatter='{value}'){
+            const chartDom=document.getElementById(containerId);
+            const barChart=echarts.init(chartDom);
+
+            const baseOption={
+                tooltip:{
+                    trigger:'axis',
+                    axisPointer:{
+                        type:'shadow'
+                    }
+                },
+                legend:{
+                    data:['Human','Mouse','Arabidopsis_thaliana','Zea_mays'],
+                    top:30
+                },
+                grid:{
+                    left:'3%',
+                    right:'4%',
+                    bottom:'3%',
+                    containLabel:true
+                },
+                xAxis:{
+                    type:'category',
+                    data:['SEdb 1.0','SEdb 2.0','SEdb 3.0'],
+                    axisLabel:{
+                        fontSize:12
+                    }
+                },
+                yAxis:{
+                    type:'value',
+                    axisLabel:{
+                        formatter:yAxisFormatter
+                    }
+                },
+                series:seriesData.map(item=>({
+                    name:item.name,
+                    type:'bar',
+                    data:item.data,
+                    itemStyle:{
+                        color:item.color
+                    }
+                }))
+            };
+
+            const sideBySideOption={
+                series:[
+                    {
+                        barGap:0,
+                        barCategoryGap:'20%'
+                    },
+                    {},
+                    {},
+                    {}
+                ]
+            };
+            barChart.setOption(baseOption);
+            barChart.setOption(sideBySideOption);
+
+            window.addEventListener('resize',function(){
+                barChart.resize();
+            });
+        }
+        //第一个条形柱状图的初始化
+        const seriesData1=[
+            {name:'Human',data:[541,1739,3389],color:'#fac858'},
+            {name:'Mouse',data:[541,1739,3389],color:'#91cc75'},
+            {name:'Arabidopsis_thaliana',data:[0,0,21],color:'#e8730b'},
+            {name:'Zea_mays',data:[0,0,15],color:'#13d323'}
+        ];
+        initBarChart('left-main-chart1.1',seriesData1);
+
+        //第二个柱状图
+        const seriesData2=[
+            {name:'Human',data:[331601,1167518,2311855],color:'#fac858'},
+            {name:'Mouse',data:[0,550226,1148665],color:'#91cc75'},
+            {name:'Arabidopsis_thaliana',data:[0,0,4195],color:'#e8730b'},
+            {name:'Zea_mays',data:[0,0,16357],color:'#13d323'}
+        ];
+        initBarChart('left-main-chart2.1',seriesData2);
+
+
+
+        //     折线图
+        function initLineChart(containerId,seriesData,yAxisFormatter='(value'){
+            const chartDom=document.getElementById(containerId);
+            const lineChart=echarts.init(chartDom);
+
+            const lineOption={
+                tooltip:{
+                    trigger:'axis',
+                    axisPointer:{
+                        type:'shadow'
+                    }
+                },
+                legend:{
+                    data:['Human','Mouse','Arabidopsis_thaliana','Zea_mays'],
+                    top:30
+                },
+                grid:{
+                    left:'3%',
+                    right:'4%',
+                    bottom:'3%',
+                    containLabel:true
+                },
+                xAxis:{
+                    type:'category',
+                    data:['SEdb 1.0','SEdb 2.0','SEdb 3.0'],
+                    axisLabel:{
+                        fontSize:12
+                    }
+                },
+                yAxis:{
+                    type:'value',
+                    axisLabel:{
+                        formatter:yAxisFormatter,
+                        show:true,
+                        fontSize:12
+                    }
+                },
+                series:seriesData.map(item=>({
+                    name:item.name,
+                    type:'line',
+                    data:item.data,
+                    itemStyle:{
+                        color:item.color
+                    },
+                    symbol:'circle',
+                    symbolSize:8,
+                    lineStyle:{
+                        width:3
+                    }
+                }))
+            };
+            lineChart.setOption(lineOption);
+            window.addEventListener('resize',function(){
+                lineChart.resize();
+            })
+        }
+
+        //第一个折线图
+        const series2Data1=[
+            {name:'Human',data:[541,1739,3389],color:'#fac858'},
+            {name:'Mouse',data:[541,1739,3389],color:'#91cc75'},
+            {name:'Arabidopsis_thaliana',data:[0,0,21],color:'#e8730b'},
+            {name:'Zea_mays',data:[0,0,15],color:'#13d323'}
+        ];
+        initLineChart('left-main-chart1.2',series2Data1)
+        const series2Data2=[
+            {name:'Human',data:[331601,1167518,2311855],color:'#fac858'},
+            {name:'Mouse',data:[0,550226,1148665],color:'#91cc75'},
+            {name:'Arabidopsis_thaliana',data:[0,0,4195],color:'#e8730b'},
+            {name:'Zea_mays',data:[0,0,16357],color:'#13d323'}
+        ];
+        initLineChart('left-main-chart2.2',series2Data2);
+
+
+        //     堆叠图
+        function initStackedBarChart(containerId ,seriesData,yAxisFormatter='{value}'){
+            const chartDom=document.getElementById(containerId);
+            const stackedBarChart=echarts.init(chartDom);
+
+            const stackedBarOption={
+                tooltip:{
+                    trigger:'axis',
+                    axisPointer:{
+                        type:'shadow'
+                    }
+                },
+                legend:{
+                    data:seriesData.map(item=>item.name),
+                    top:30
+                },
+                grid:{
+                    left:'3%',
+                    right:'4%',
+                    bottom:'3%',
+                    containLabel:true
+                },
+                xAxis:{
+                    type:'category',
+                    data:['SEdb 1.0','SEdb 2.0','SEdb 3.0'],
+                    axisLabel:{
+                        fontSize:12
+                    }
+                },
+                yAxis:{
+                    type:'value',
+                    axisLabel:{
+                        formatter:yAxisFormatter
+                    }
+                },
+                series:seriesData.map(item=>({
+                    name:item.name,
+                    type:'bar',
+                    data:item.data,
+                    stack:'total',  //关键点，添加stack属性实现堆叠
+                    itemStyle:{
+                        color:item.color
+                    },
+                    emphasis:{
+                        focus:'series'
+                    },
+                    label:{
+                        show:true,
+                        position:'inside'
+                    }
+                }))
+            };
+            stackedBarChart.setOption(stackedBarOption);
+            window.addEventListener('resize',function(){
+                stackedBarChart.resize();
+            });
+        }
+        const series3Data1=[
+            {name:'Human',data:[541,1739,3389],color:'#fac858'},
+            {name:'Mouse',data:[541,1739,3389],color:'#91cc75'},
+            {name:'Arabidopsis_thaliana',data:[0,0,21],color:'#e8730b'},
+            {name:'Zea_mays',data:[0,0,15],color:'#13d323'}
+        ];
+        initStackedBarChart('left-main-chart1.3',series3Data1)
+        const series3Data2=[
+            {name:'Human',data:[331601,1167518,2311855],color:'#fac858'},
+            {name:'Mouse',data:[0,550226,1148665],color:'#91cc75'},
+            {name:'Arabidopsis_thaliana',data:[0,0,4195],color:'#e8730b'},
+            {name:'Zea_mays',data:[0,0,16357],color:'#13d323'}
+        ];
+        initStackedBarChart('left-main-chart2.3',series3Data2);
+    </script>
+
+    <!--选项卡功能-->
+<!--    切换柱状图、折线图、堆叠图-->
+    <script>
+        //<!--    切换柱状图、折线图、堆叠图-->
+        document.addEventListener('DOMContentLoaded',function(){
+            const chartGroups=document.querySelectorAll('.box2>.left>div');
+            chartGroups.forEach(group=>{
+                const btns=group.querySelectorAll('ul>li');
+                const tabs=group.querySelectorAll('ol>li');
+                btns.forEach((button,index)=>{
+                    button.addEventListener('click',()=>{
+                        btns.forEach(btn=>btn.classList.remove('active'));
+                        tabs.forEach(tab=>tab.classList.remove('active'));
+
+                        btns[index].classList.add('active');
+                        tabs[index].classList.add('active');
+                    });
+                });
+            });
+        });
+
+
+        <!--    refresh刷新按钮-->
+        document.addEventListener('DOMContentLoaded',function(){
+            const refreshButtons=document.querySelectorAll('.refresh');
+
+            refreshButtons.forEach(button=>{
+                button.addEventListener('click',(e)=>{
+                    const groups=button.closest('.box2>.left>div');
+                    if(groups){
+                        const allButtons=groups.querySelectorAll('ul>li');
+                        const allTabs=groups.querySelectorAll('ol>li');
+
+                        allButtons.forEach(btn=>btn.classList.remove('active'));
+                        allTabs.forEach(tab=>tab.classList.remove('active'));
+
+                        allButtons[0].classList.add('active');
+                        allTabs[0].classList.add('active');
+                    }
+                })
+            })
+        })
+
+    </script>
+
+    <!--滑动js-->
+    <script>
+        document.addEventListener('DOMContentLoaded',function(){
+            var Rbuttons=document.querySelectorAll('.button-right');
+            Rbuttons.forEach(function(button){
+                button.addEventListener('click',function(e){
+                    e.preventDefault();
+                    var container=button.closest('.chart-container');
+                    var legends=container.querySelector('.chart-legend');
+
+                    if(legends){
+                        legends.scrollBy({
+                            left:200,
+                            behavior:'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        document.addEventListener('DOMContentLoaded',function(){
+            var Lbuttons=document.querySelectorAll('.button-left');
+            Lbuttons.forEach(function(button){
+                button.addEventListener('click',function(e){
+                    e.preventDefault();
+                    var container=button.closest('.chart-container');
+                    var legends=container.querySelector('.chart-legend');
+
+                    if(legends){
+                        legends.scrollBy({
+                            left:-200,
+                            behavior:'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+    </script>
+
+
+
+    <!--    圆环-->
+    <script>
+        // 初始化圆环图函数
+        function initPieChart(containerId, dataitems) {
+            const pieChart = echarts.init(document.getElementById(containerId));
+
+            // 固定的9种颜色
+            const baseColors = ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452','#9a60b4','#ea7ccc'];
+
+            // 根据数据索引获取颜色（循环使用9种颜色）
+            function getColor(index) {
+                return baseColors[index % baseColors.length];
+            }
+
+            // 配置数据
+            const option = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c} ({d}%)'
+                },
+                legend: {
+                    type: 'scroll',
+                    orient: 'horizontal',
+
+                    top: 'top',
+                    padding:[30,30],
+                    data: dataitems.map(item => item.name),
+                    textStyle: {
+                        fontSize: 20 // 调整图例文字大小
+                    },
+                    pageTextStyle: {
+                        color: '#333'
+                    },
+                    pageIconColor: '#666',
+                    pageIconInactiveColor: '#ccc',
+                    pageIconSize: 25,
+                    pageButtonItemGap: 5
+                },
+                series: [{
+                    name: '数据分布',
+                    type: 'pie',
+                    radius: ['50%', '80%'],
+                    center:['50%', '60%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        show: false
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '18',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    data: dataitems.map((item, index) => ({
+                        name: item.name,
+                        value: item.value,
+                        itemStyle: {
+                            color: getColor(index)
+                        }
+                    })),
+                    emphasis: {
+                        scale: true,
+                        scaleSize: 1.5,
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0,0,0,0.5)'
+                        }
+                    }
+                }]
+            };
+
+            pieChart.setOption(option);
+            window.addEventListener('resize', function() {
+                pieChart.resize();
+            });
+        }
+
+
+        // 1. 第一个圆环 - 170个数据
+        const dataitems1 =[{ name: "Blood", value: 280 },
+            { name: "Brain", value: 259 },
+            { name: "Lung", value: 203 },
+            { name: "Breast", value: 160 },
+            { name: "Colon", value: 146 },
+            { name: "tumor", value: 137 },
+            { name: "Bone marrow", value: 137 },
+            { name: "Mammary gland", value: 131 },
+            { name: "Pancreas", value: 90 },
+            { name: "Stomach", value: 90 },
+            { name: "Prostate", value: 89 },
+            { name: "Embryo", value: 80 },
+            { name: "Skin", value: 79 },
+            { name: "Neuroblastoma", value: 74 },
+            { name: "Peripheral blood", value: 67 },
+            { name: "Bone", value: 64 },
+            { name: "Liver", value: 63 },
+            { name: "Heart", value: 55 },
+            { name: "Kidney", value: 55 },
+            { name: "Lymph node", value: 46 },
+            { name: "hESC", value: 38 },
+            { name: "Haematopoietic and lymphoid tissue", value: 34 },
+            { name: "Ovary", value: 34 },
+            { name: "Glioblastoma", value: 33 },
+            { name: "Gastrointestinal Stromal", value: 28 },
+            { name: "Adipose", value: 25 },
+            { name: "Lymphoma", value: 24 },
+            { name: "Esophagus", value: 24 },
+            { name: "Renal", value: 21 },
+            { name: "Retina", value: 21 },
+            { name: "Skeletal muscle", value: 21 },
+            { name: "iPSCs", value: 21 },
+            { name: "Other", value: 19 },
+            { name: "Fibroblast", value: 16 },
+            { name: "Placenta villous core", value: 15 },
+            { name: "Tracheobronchial epithelial", value: 15 },
+            { name: "Bladder", value: 14 },
+            { name: "Umbilical vein", value: 14 },
+            { name: "Liposarcoma", value: 13 },
+            { name: "Ascites", value: 13 },
+            { name: "Placenta", value: 12 },
+            { name: "Muscle", value: 12 },
+            { name: "Cervix", value: 11 },
+            { name: "Oral cavity", value: 11 },
+            { name: "Umbilical cord", value: 11 },
+            { name: "Tonsil", value: 10 },
+            { name: "ovarian", value: 10 },
+            { name: "Foreskin", value: 10 },
+            { name: "Haematopoietic and lymphoid tissue bone marrow", value: 9 },
+            { name: "Embryonic kidney", value: 9 },
+            { name: "Head and neck", value: 8 },
+            { name: "Retinal Pigmented Epithelial", value: 8 },
+            { name: "Trophoblast", value: 8 },
+            { name: "Hydrothorax", value: 8 },
+            { name: "Peripheral nerve", value: 8 },
+            { name: "Leukophereses", value: 8 },
+            { name: "Pleural effusion", value: 7 },
+            { name: "Ewing sarcoma", value: 7 },
+            { name: "Connective tissue", value: 7 },
+            { name: "Melanoma", value: 7 },
+            { name: "Fetal lung", value: 7 },
+            { name: "HUVEC", value: 7 },
+            { name: "Embryo endodermal", value: 7 },
+            { name: "Buffy coat", value: 6 },
+            { name: "Haematopoietic and lymphoid tissue blood", value: 6 },
+            { name: "Cholangio", value: 6 },
+            { name: "Alveoli", value: 6 },
+            { name: "Arter", value: 6 },
+            { name: "hiPSC", value: 6 },
+            { name: "Rhabdomyosarcoma", value: 6 },
+            { name: "MPNST", value: 6 },
+            { name: "Haematopoietic and Lymphoid", value: 6 },
+            { name: "Left ventricle", value: 6 },
+            { name: "Endoderm", value: 5 },
+            { name: "Endometrium", value: 5 },
+            { name: "Adrenal gland", value: 5 },
+            { name: "Malignant rhaboid tumor", value: 5 },
+            { name: "Autonomic ganglia", value: 5 },
+            { name: "Uveal", value: 5 },
+            { name: "Sarcoma", value: 5 },
+            { name: "Cranial neural crest", value: 5 },
+            { name: "Xenograft", value: 5 },
+            { name: "Dorsolateral prefrontal cortex", value: 5 },
+            { name: "KARPAS", value: 5 },
+            { name: "Lung tumoroids", value: 4 },
+            { name: "Th17 lymphocytes", value: 4 },
+            { name: "Retinal epithelium", value: 4 },
+            { name: "Osteosarcoma", value: 4 },
+            { name: "Hindbrain", value: 4 },
+            { name: "Biliary", value: 4 },
+            { name: "Shoulder", value: 4 },
+            { name: "Umbilical cord blood", value: 4 },
+            { name: "Vascular", value: 4 },
+            { name: "Cranium", value: 4 },
+            { name: "MRC", value: 4 },
+            { name: "Small Round Cell Tumors", value: 4 },
+            { name: "Spleen", value: 4 },
+            { name: "Gonad", value: 4 },
+            { name: "Bronchia", value: 3 },
+            { name: "Neonatal foreskin", value: 3 },
+            { name: "Burkitts lymphoma of the left maxilla", value: 3 },
+            { name: "cerebellum", value: 3 },
+            { name: "Podocyte", value: 3 },
+            { name: "cerebral cortex", value: 3 },
+            { name: "Thalamus", value: 3 },
+            { name: "Cervical", value: 3 },
+            { name: "Thyroid gland", value: 3 },
+            { name: "Aorta", value: 3 },
+            { name: "Osteoblastic", value: 3 },
+            { name: "Malignant pleural effusion", value: 3 },
+            { name: "Artery", value: 3 },
+            { name: "Uterus", value: 3 },
+            { name: "HUDEP-2", value: 3 },
+            { name: "Mesenchymal", value: 3 },
+            { name: "Pancreatic duct", value: 3 },
+            { name: "Microglia", value: 3 },
+            { name: "Sigmoid colon", value: 3 },
+            { name: "Gastrocnemius medialis", value: 3 },
+            { name: "Ileum", value: 3 },
+            { name: "Definitive Endoderm", value: 3 },
+            { name: "Islets", value: 3 },
+            { name: "Nasopharyngeal", value: 3 },
+            { name: "Embryonic", value: 3 },
+            { name: "Pharyng", value: 3 },
+            { name: "embryonic lung", value: 3 },
+            { name: "Liomyoma", value: 2 },
+            { name: "Endometrial epithelial", value: 2 },
+            { name: "Pluripotent stem cells", value: 2 },
+            { name: "Endometrial stromal", value: 2 },
+            { name: "NK92", value: 2 },
+            { name: "Testis", value: 2 },
+            { name: "Activated IL4,anti-CD40,IgM,and IgD peripheral blood", value: 2 },
+            { name: "Heart left ventricle", value: 2 },
+            { name: "Acute myeloid leukemia", value: 2 },
+            { name: "Endometrioid adenocarcinoma", value: 2 },
+            { name: "Non-transformed mammary epithelial", value: 2 },
+            { name: "Endometriosis", value: 2 },
+            { name: "NPCs", value: 2 },
+            { name: "Lymphoblastoid", value: 2 },
+            { name: "Psoas muscle", value: 2 },
+            { name: "Adrenal", value: 2 },
+            { name: "Thymus", value: 2 },
+            { name: "hiDP", value: 2 },
+            { name: "lymphocyte", value: 2 },
+            { name: "Endothelial", value: 2 },
+            { name: "Oesophagus", value: 2 },
+            { name: "Thyroid", value: 2 },
+            { name: "Epithelial", value: 2 },
+            { name: "Chondrocytes", value: 2 },
+            { name: "Tongue", value: 2 },
+            { name: "Chordal", value: 2 },
+            { name: "Aortic", value: 2 },
+            { name: "Aortic endothelial", value: 2 },
+            { name: "Ovaries", value: 2 },
+            { name: "HMSCs", value: 2 },
+            { name: "hPSC", value: 2 },
+            { name: "TSCs", value: 2 },
+            { name: "Urinary bladder", value: 2 },
+            { name: "Pancreatic", value: 2 },
+            { name: "Human Brinchial epithelial", value: 2 },
+            { name: "Mid-gestation placenta", value: 2 },
+            { name: "PBMCs", value: 2 },
+            { name: "Visceral adipose", value: 2 },
+            { name: "Pectoralis major muscle", value: 2 },
+            { name: "Umblical vein", value: 2 },
+            { name: "Blood vessel", value: 2 },
+            { name: "Ureter", value: 2 },
+            { name: "Induced pluripotent stem cells", value: 2 },
+            { name: "Small intestine", value: 2 },
+            { name: "Dermal fibroblasts", value: 2 },
+            { name: "Glioblstoma", value: 2 },
+            { name: "Myometrium", value: 2 },
+            { name: "Glioma neurospheres", value: 2 },
+            { name: "Leiomyosarcoma", value: 2 },
+            { name: "Squamous cell", value: 2 },
+            { name: "Nasopharyngeal carcinoma", value: 2 },
+            { name: "Limbus corneae", value: 2 },
+            { name: "Pharynx", value: 2 },
+            { name: "Neck", value: 2 },
+            { name: "Syncytiotrophoblast", value: 2 },
+            { name: "Embryonic stem cells", value: 1 },
+            { name: "Synovial sarcoma", value: 1 },
+            { name: "T lymphocyte", value: 1 },
+            { name: "Burkitt's lymphoma", value: 1 },
+            { name: "Neuron", value: 1 },
+            { name: "Teratoma", value: 1 },
+            { name: "Endometrioid", value: 1 },
+            { name: "Non-mineralized aortic valves", value: 1 },
+            { name: "Pre-mesendoderm", value: 1 },
+            { name: "Cerebrospinal fluid", value: 1 },
+            { name: "Hematopoietic", value: 1 },
+            { name: "Lymphoblast", value: 1 },
+            { name: "Thoracic aorta", value: 1 },
+            { name: "Nucleus pulposus", value: 1 },
+            { name: "Highly metastatic osteosarcoma", value: 1 },
+            { name: "Lymphoid", value: 1 },
+            { name: "Tibial nerve", value: 1 },
+            { name: "Hilar lymph node", value: 1 },
+            { name: "Erythroblast", value: 1 },
+            { name: "Macula", value: 1 },
+            { name: "Esophagus muscularis mucosa", value: 1 },
+            { name: "Chordoma", value: 1 },
+            { name: "Hippocampus", value: 1 },
+            { name: "Retinal_Pigment_Epithelium", value: 1 },
+            { name: "Esophagus squamous epithelium", value: 1 },
+            { name: "Clear Cell Sarcoma", value: 1 },
+            { name: "Malignant pleural fluid posthumously", value: 1 },
+            { name: "Transverse colon", value: 1 },
+            { name: "Right atrium auricular region", value: 1 },
+            { name: "Ascending aorta", value: 1 },
+            { name: "Fallopian tube", value: 1 },
+            { name: "Colorectal", value: 1 },
+            { name: "Right cardiac atrium", value: 1 },
+            { name: "Fetal brain", value: 1 },
+            { name: "HSPC", value: 1 },
+            { name: "Right lobe of liver", value: 1 },
+            { name: "Pancreas duct", value: 1 },
+            { name: "Cord blood", value: 1 },
+            { name: "RPMI-8402", value: 1 },
+            { name: "B-cell lymphoma", value: 1 },
+            { name: "Fetal spleenocytes", value: 1 },
+            { name: "Umbilical artery", value: 1 },
+            { name: "Coronary artery", value: 1 },
+            { name: "Mesendoderm", value: 1 },
+            { name: "Vagina", value: 1 },
+            { name: "Cortical neuron", value: 1 },
+            { name: "Pancreatic endoderm", value: 1 },
+            { name: "Mouse xenograft", value: 1 },
+            { name: "Blood Outgrowth Endothelia", value: 1 },
+            { name: "Gastroesophageal sphincter", value: 1 },
+            { name: "Week7-9 human embyro", value: 1 },
+            { name: "Cytotrophoblast", value: 1 },
+            { name: "Induced hepatocyte-like cells", value: 1 },
+            { name: "Pelvis", value: 1 },
+            { name: "White adipose", value: 1 },
+            { name: "Gingival epithelial", value: 1 },
+            { name: "Perigastric lymph node", value: 1 },
+            { name: "Dermal", value: 1 },
+            { name: "iPSC-derived", value: 1 },
+            { name: "Periodontal ligament", value: 1 },
+            { name: "Muscle of leg", value: 1 },
+            { name: "Smooth muscle", value: 1 },
+            { name: "Muscle of trunk", value: 1 },
+            { name: "Spinal cord", value: 1 },
+            { name: "Brain and spinal cord", value: 1 },
+            { name: "Glioma", value: 1 },
+            { name: "Peritoneal effusion: derived from metastatic site: peritoneal cavity", value: 1 },
+            { name: "Keratinocyte", value: 1 },
+            { name: "Breast cancer brain metastatic variant", value: 1 },
+            { name: "Peyers patch", value: 1 },
+            { name: "Breast cancer cell line lung metastatic variant", value: 1 },
+            { name: "H9", value: 1 },
+            { name: "Limbal stem cells", value: 1 },
+            { name: "Large intestine", value: 1 },
+            { name: "Nasopharyngeal epithelial", value: 1 },
+            { name: "Submandibular Salivary Gland", value: 1 },
+            { name: "Breast epithelium", value: 1 }
+        ];
+
+        // 2. 第二个圆环 - 100个数据
+        const dataitems2 =[{ name: "Embryo", value: 503 },
+            { name: "Bone marrow", value: 216 },
+            { name: "Brain", value: 180 },
+            { name: "Liver", value: 120 },
+            { name: "Adipose", value: 68 },
+            { name: "Spleen", value: 57 },
+            { name: "Heart", value: 50 },
+            { name: "Pancreas", value: 43 },
+            { name: "Blood", value: 40 },
+            { name: "Tumor", value: 33 },
+            { name: "Testis", value: 32 },
+            { name: "Embryonic fibroblasts", value: 24 },
+            { name: "Thymus", value: 22 },
+            { name: "Lung", value: 20 },
+            { name: "Kidney", value: 19 },
+            { name: "Spleen and lymph nodes", value: 19 },
+            { name: "Cerebellum", value: 18 },
+            { name: "Skeletal muscle", value: 18 },
+            { name: "Skin", value: 17 },
+            { name: "Mammary gland", value: 14 },
+            { name: "Bone marrow-derived macrophage", value: 13 },
+            { name: "Forelimb", value: 13 },
+            { name: "Eye", value: 12 },
+            { name: "Forebrain", value: 12 },
+            { name: "Intestine", value: 11 },
+            { name: "Cortex", value: 11 },
+            { name: "Other", value: 10 },
+            { name: "Uterus", value: 10 },
+            { name: "Colon", value: 10 },
+            { name: "muscle", value: 10 },
+            { name: "Embryonic forebrain", value: 10 },
+            { name: "Embryonic heart", value: 8 },
+            { name: "Retina", value: 8 },
+            { name: "Small intestine", value: 8 },
+            { name: "Embryonic hindbrain", value: 7 },
+            { name: "Embryonic liver", value: 7 },
+            { name: "Embryonic midbrain", value: 7 },
+            { name: "LPM", value: 7 },
+            { name: "Primary skeletal muscle fibers", value: 7 },
+            { name: "Lymph nodes and spleen", value: 7 },
+            { name: "Adrenal gland", value: 7 },
+            { name: "Back skin", value: 6 },
+            { name: "Limb", value: 6 },
+            { name: "Limbs", value: 6 },
+            { name: "Cells cultured in vitro", value: 6 },
+            { name: "Mammary", value: 6 },
+            { name: "Embryonic facial prominence", value: 6 },
+            { name: "Spleens and lymph", value: 6 },
+            { name: "Nose", value: 5 },
+            { name: "Embryonic limb", value: 5 },
+            { name: "Peritoneal", value: 5 },
+            { name: "Embryonic neural tube", value: 5 },
+            { name: "Macrophage", value: 5 },
+            { name: "Fetal liver", value: 5 },
+            { name: "Hindlimb", value: 5 },
+            { name: "iPSCs", value: 4 },
+            { name: "Embryonic kidney", value: 4 },
+            { name: "Ovary", value: 4 },
+            { name: "Breast", value: 4 },
+            { name: "prostate", value: 4 },
+            { name: "Small intestinal", value: 4 },
+            { name: "Embryonic cortex", value: 4 },
+            { name: "mES", value: 4 },
+            { name: "Blastocyst", value: 3 },
+            { name: "Embryonic intestine", value: 3 },
+            { name: "Embryonic kidneys", value: 3 },
+            { name: "Embryonic lung", value: 3 },
+            { name: "Lin- bone marrow", value: 3 },
+            { name: "Placenta", value: 3 },
+            { name: "Lymph", value: 3 },
+            { name: "Embryonic stomach", value: 3 },
+            { name: "Renal", value: 3 },
+            { name: "Rib_cartilage", value: 3 },
+            { name: "Ectoderm", value: 3 },
+            { name: "Mandibular process", value: 3 },
+            { name: "Maxillary process", value: 3 },
+            { name: "Spleen and lymph", value: 3 },
+            { name: "AGM", value: 3 },
+            { name: "Stomach", value: 2 },
+            { name: "Striatum", value: 2 },
+            { name: "Neuron", value: 2 },
+            { name: "Superchiasmatic Nuclei", value: 2 },
+            { name: "Jejunum", value: 2 },
+            { name: "Bone marrow stromal", value: 2 },
+            { name: "Teratocarcinoma", value: 2 },
+            { name: "Limb bud", value: 2 },
+            { name: "THMYCN tumor", value: 2 },
+            { name: "Thymic lymphoma", value: 2 },
+            { name: "Pancreatic islets", value: 2 },
+            { name: "Cerebral cortex", value: 2 },
+            { name: "Endoderm differentiated", value: 2 },
+            { name: "Lymphocyte", value: 2 },
+            { name: "Skeletal_muscle", value: 2 },
+            { name: "Dorsal hippocampus", value: 2 },
+            { name: "Duodenal crypts", value: 2 },
+            { name: "Skeletal muscle myoblasts", value: 2 },
+            { name: "Spermatogonia", value: 2 },
+            { name: "Elencephalic cortex", value: 2 },
+            { name: "Forelimb_bud", value: 2 },
+            { name: "Spermatogonia from testis", value: 2 },
+            { name: "Spinal cord", value: 2 },
+            { name: "Mesoderm differentiated", value: 2 },
+            { name: "Adipocyte", value: 2 },
+            { name: "Splenocytes", value: 2 },
+            { name: "Anterior trunk", value: 1 },
+            { name: "Insulin", value: 1 },
+            { name: "SPM", value: 1 },
+            { name: "Embryonic genital tubercle", value: 1 },
+            { name: "Neocortex", value: 1 },
+            { name: "Neural precursor", value: 1 },
+            { name: "Jejunal", value: 1 },
+            { name: "Embryonic hindlimb", value: 1 },
+            { name: "Newborn lens", value: 1 },
+            { name: "Superior cervical ganglia", value: 1 },
+            { name: "Keratinocyte", value: 1 },
+            { name: "T lymphocyte", value: 1 },
+            { name: "Olfactory Bulb", value: 1 },
+            { name: "Tail epidermis", value: 1 },
+            { name: "Bone marrow-derived mast", value: 1 },
+            { name: "Ovarian", value: 1 },
+            { name: "Cecal", value: 1 },
+            { name: "Embryonic male-gonad", value: 1 },
+            { name: "Celiac ganglia", value: 1 },
+            { name: "Embryonic Occipital Cortex", value: 1 },
+            { name: "Prefrontal cortex", value: 1 },
+            { name: "Embryonic skin", value: 1 },
+            { name: "Primary mouse bone marrow cells", value: 1 },
+            { name: "Cochlea", value: 1 },
+            { name: "Lymph_node_and_spleen", value: 1 },
+            { name: "External genitalia", value: 1 },
+            { name: "Facial mesenchyme", value: 1 },
+            { name: "Rib", value: 1 },
+            { name: "Skin epithelium", value: 1 },
+            { name: "Duodenum", value: 1 },
+            { name: "Fetal testis", value: 1 },
+            { name: "Salivary gland", value: 1 },
+            { name: "Effector CD8 T cells", value: 1 },
+            { name: "Maxillary arch", value: 1 },
+            { name: "Medulloblastoma", value: 1 },
+            { name: "G1E-ER4", value: 1 },
+            { name: "Genital tubercle", value: 1 },
+            { name: "Embryonic eye", value: 1 },
+            { name: "Mesenchymal_chondrosarcoma", value: 1 },
+            { name: "Haematopoietic progenitors", value: 1 },
+            { name: "Midbrain", value: 1 },
+            { name: "Spleen and peripheral lymoh organs", value: 1 },
+            { name: "Embryonic flank", value: 1 },
+            { name: "Ileal", value: 1 },
+            { name: "Myoblasts", value: 1 },
+            { name: "Incisor", value: 1 },
+            { name: "Embryonic forelimb", value: 1 },
+            { name: "Myofibers", value: 1 }
+        ];
+
+        // 3. 第三个圆环 - 80个数据
+        const dataitems3 =[
+            { name: "Seedlings", value: 4 },
+            { name: "Mature leaves", value: 4 },
+            { name: "Root", value: 4 },
+            { name: "Young shoots", value: 3 },
+            { name: "Cotyledons", value: 2 },
+            { name: "Inflorescence", value: 2 },
+            { name: "Root epidermal", value: 1 },
+            { name: "Sperm nuclei", value: 1 }
+        ];
+
+        // 4. 第四个圆环 - 50个数据
+        const dataitems4 =[
+            { name: "Immature ears", value: 4 },
+            { name: "Root tips", value: 3 },
+            { name: "Coleoptilar nodes", value: 3 },
+            { name: "Endosperm", value: 3 },
+            { name: "Seedlings", value: 1 },
+            { name: "Leaf", value: 1 }
+        ];
+
+        // 初始化图表（使用上面定义的数据）
+        initPieChart('chart-container1', dataitems1);
+        initPieChart('chart-container2', dataitems2);
+        initPieChart('chart-container3', dataitems3);
+        initPieChart('chart-container4', dataitems4);
+    </script>
+
+
+
+    <div class="box3">
+        <p>
+            <strong><i class="iconfont icon-aixin"></i></strong>
+            <b>News and Updates</b>
+        </p>
+        <div>
+            <div class="box3-lef1">
+                <a><i class="iconfont icon-lianjie"></i>10/16/2017 Database construction</a><br>
+                <a><i class="iconfont icon-lianjie"></i>03/14/2019 SEdb v1.03: Update the page of 'Home' and 'Submit'</a><br>
+                <a><i class="iconfont icon-lianjie"></i>06/11/2018 The database is online</a><br>
+                <a> <i class="iconfont icon-lianjie"></i>05/21/2021 SEdb v1.04: Update the page of 'Data-Browse' and 'Download'</a><br>
+                <a><i class="iconfont icon-lianjie"></i>08/02/2018 Add gene-based and organization-based query capabilities</a>
+            </div>
+            <div class="box3-right1">
+                <a><i class="iconfont icon-lianjie"></i>03/18/2022 SEdb v2.00: Add 1198 human sample and 931 mouse sample</a><br>
+                <a><i class="iconfont icon-lianjie"></i>06/02/2022 SEdb v2.00: Add Search super-enhancers by TF-based, SE-based TF-Gene analysis and Differential-Overlapping-SE analysis</a><br>
+                <a><i class="iconfont icon-lianjie"></i>02/03/2019 SEdb v1.01: Delete a sample (SE_00_002), SEdb now contains 541 samples</a><br>
+                <a><i class="iconfont icon-lianjie"></i>06/11/2018 The database is online</a><br>
+                <a><i class="iconfont icon-lianjie"></i>03/13/2019 SEdb v1.02: Update the download files to provide super-enhancer associated genes</a>
+            </div>
+        </div>
+        <hr style="height:2px;background-color:black;border:none;margin-top:40px;">
+    </div>
+    <div class="box4">
+        <div class="top">
+            <strong><i class="iconfont icon-aixin"></i></strong>
+            <p><b>Sister Projects</b></p>
+        </div>
+        <div class="bottom">
+            <div>
+                <i class="iconfont icon-dianzan"></i>
+                <a>Endb</a>
+                <p>ENdb: an experimentally supported enhancer database for human and mouse</p>
+            </div>
+            <div>
+                <i class="iconfont icon-dianzan"></i>
+                <a>KnockTF</a>
+                <p>KnockTF: a comprehensive human gene expression profile database with knockdown/knockout of transcription factors</p>
+            </div>
+            <div>
+                <i class="iconfont icon-dianzan"></i>
+                <a> SEanalysis</a>
+                <p>SEanalysis: a web tool for super-enhancer associated regulatory analysis</p>
+            </div>
+            <div>
+                <i class="iconfont icon-dianzan"></i>
+                <a> TRCirc</a>
+                <p>TRCirc: a resource for transcriptional regulation information of circRNAs</p>
+            </div>
+            <div>
+                <i class="iconfont icon-dianzan"></i>
+                <a>LncSEA</a>
+                <p>LncSEA: a comprehensive human lncRNA sets resource and enrichment analysis platform</p>
+            </div>
+            <div>
+                <i class="iconfont icon-dianzan"></i>
+                <a> TRlnc</a>
+                <p>TRlnc: a comprehensive database of human transcriptional regulation of lncRNAs</p>
+            </div>
+            <div><i class="iconfont icon-dianzan"></i>
+                <a>ATACdb</a>
+                <p>ATACdb: A comprehensive human chromatin accessibility database</p>
+            </div>
+            <div><i class="iconfont icon-dianzan"></i>
+                <a>VARAdb</a>
+                <p>VARAdb: a variation annotation database for human</p>
+            </div>
+        </div>
+        <hr style="height:2px;background-color:black;border:none;margin-top:40px;">
+    </div>
+    <div class="box5">
+        <div class="box5-left">
+            <div class="top">
+                <i class="iconfont icon-dianhua"></i>
+                <span>Contact us</span>
+            </div>
+            <div class="bottom">
+                <p><b>Principal Investigator:</b> Chunquan Li, Ph.D.</p>
+                <p>The First Affiliated Hospital, Hengyang Medical School, University of South China</p>
+                <p><b>Email:</b> lcqbio@163.com</p>
+                <hr style="height:2px;background-color:black;border:none;margin-top:40px;">
+                <p>SEdb 1.0 link is</p>
+                <a><b>http://www.licpathway.net/sedbv1/</b></a>
+            </div>
+        </div>
+        <div class="box5-center">
+            <div class="top">
+                <i class="iconfont icon-jishiben"></i>
+                <span>Publication</span>
+            </div>
+            <div class="bottom">
+                <p>Wang Y, Song C, Zhao J, Zhang Y, Zhao X, Feng C, Zhang G,
+                    Zhu J, Wang F, Qian F, Zhou L, Zhang J, Bai X, Ai B, Liu X, Wang Q,
+                    Li C. SEdb 2.0: a comprehensive super-enhancer database of human and mouse.
+                    Nucleic Acids Res. 2022 Nov 1:gkac968. doi:
+                    <a>https://doi.org/10.1093/nar/gky1025.</a> PMID: 36318264.</p>
+            </div>
+        </div>
+        <div class="box5-right">
+            <div class="top">
+                <i class="iconfont icon-diqiu"></i>
+                <span>Visitors</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+<footer>
+    <hr style="height:10px;background-color:#f7901d;border:none;margin-top:-10px;">
+    <div class="footer-1">
+        <a href="Home.html" data-nav="home">Home<span>|</span></a>
+        <a href="Data-Browse.html" data-nav="data-browse">Data-Browse<span>|</span></a>
+        <a href="Search.html">Search</a>
+        <a>Analysis<span>|</span></a>
+        <a>Genome-Browse<span>|</span></a>
+        <a>Download<span>|</span></a>
+        <a>Statistics<span>|</span></a>
+        <a>Contact<span>|</span></a>
+        <a>Help</a>
+    </div>
+    <div class="footer-1">
+        <ul>
+            <li>Copyright  HMU<span>|</span></li>
+            <li> 黑ICP备16009434号-1<span>|</span></li>
+            <li>  黑ICP备16009434号-1<span>|</span></li>
+            <li>Li C Lab</li>
+        </ul>
+    </div>
+</footer>
+</body>
+</html>
