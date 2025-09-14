@@ -1,0 +1,507 @@
+*{
+    margin:0;
+    padding:0;
+}
+ul,ol,li{
+    list-style:none;
+}
+section .box1{
+    width:1800px;
+    margin:0 auto;
+    height:800px;
+    display:flex;
+    gap:20px;
+}
+
+.box1 .left1{
+    flex:1;
+}
+.box1 .left1 img{
+    width:400px;
+    height:100px;
+    display:block;
+    margin-top:50px;
+}
+.box1 .left1 p{
+    margin-top:50px;
+    font-size:25px;
+    font-weight:700;
+}
+.box1 .left1 .banner{
+    width:850px;
+    height:500px;
+    position:relative;
+}
+.box1 .left1 .banner img{
+    width:100%;
+    height:100%;
+    display:block;
+}
+.box1 .left1 .banner>ul>li{
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    opacity:0;
+    transition:opacity 0.5s linear;
+}
+.box1 .left1 .banner>ul>li.active{
+    opacity:1;
+}
+.box1 .left1 .banner>ol{
+    width:200px;
+    height:30px;
+    position:absolute;
+    left:30px;
+    bottom:30px;
+    background-color:rgba(0,0,0,0.5);
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border-radius:15px;
+}
+.box1 .left1 .banner>ol>li{
+    width:20px;
+    height:20px;
+    background:#fff;
+    border-radius:50%;
+    cursor:pointer;
+}
+.box1 .left1 .banner>ol>li.active{
+    background:#0c4270;
+}
+/*左右切换按钮*/
+.box1 .left1 .banner>div{
+    width:40px;
+    height:60px;
+    position:absolute;
+    margin-top:275px;
+    background-color:rgba(0,0,0,0.5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    color:#fff;
+}
+.box1 .left1 .banner>div.left{
+    left:0;
+}
+.box1 .left1 .banner>div.right{
+    right:0;
+}
+
+
+.box1 .right1{
+    flex:1;
+}
+.box1 .right1 h2{
+    font-size:50px;
+    text-align:center;
+}
+.box1 .right1 p{
+    font-size:23px;
+    line-height:40px;
+}
+section .box2{
+    width:1800px;
+    margin:0 auto;
+    display:flex;
+    gap:20px;
+    border:0;
+}
+.box2 .left {
+    border:1px solid grey;
+    flex: 1;
+    margin-right: 20px;
+    border-radius: 15px;
+    box-shadow: 0 -8px 0 0 #0c4270;
+}
+.box2 .left:hover{
+    transform:translateY(-5px);
+    box-shadow:0 5px 5px 5px rgba(0,0,0,0.2);
+    transition:all 0.3s ease;
+}
+.box2 .left .title{
+    margin-top:20px;
+    font-size:30px;
+    font-weight:600;
+    text-align:center;
+}
+.box2 .left .tab{
+    font-size:30px;
+    font-weight:400;
+    margin-left:65px;
+}
+.box2 .left ul ol li{
+    list-style:none;
+}
+.box2 .left>div{
+    width:800px;
+    height:400px;
+
+
+}
+
+.box2 .left>div .chart{
+    position:relative;
+    margin-left:50px;
+    display:block;
+}
+
+.box2 .left>div .chart>ol>li .chart-container{
+    width:700px;
+    height:350px;
+}
+.box2 .left>div .chart>ol{
+    width:700px;
+    height:350px;
+}
+.box2 .left>div .chart>ol>li{
+    display:none;
+}
+.box2 .left>div .chart>ol>li.active{
+    display:block;
+}
+.box2 .left>div .chart>ul{
+    width:60px;
+    height:180px;
+    display:flex;
+    flex-direction:column;
+    float:right;
+    position:absolute;
+    top:40%;
+    right:30px;
+    transform:translateY(-50%);
+
+}
+.box2 .left>div .chart>ul>li{
+    cursor:pointer;
+    text-align:center;
+    line-height:60px;
+    font-size:30px;
+    flex:1;
+    position:relative;
+    display:inline-block;
+}
+.box2 .left>div .chart>ul>li.active{
+    color:#56a5cc;
+}
+.box2 .left>div .chart>ul>li:hover{
+    background:#f0f0f0;
+}
+
+
+.box2 .left>div .chart>ul>li:nth-child(1):hover::after{
+    content:"Switch bar Chart";
+    position:absolute;
+    left:100%;
+    bottom:50%;
+    transform:translateX(-50%);
+    color:#56a5cc;
+    padding:5px 10px;
+    border-radius:4px;
+    font-size:16px;
+    white-space:nowrap;
+}
+.box2 .left>div .chart>ul>li:nth-child(2):hover::after{
+    content:"Switch Line Chart";
+    position:absolute;
+    left:100%;
+    bottom:50%;
+    transform:translateX(-50%);
+    color:#56a5cc;
+    padding:5px 10px;
+    border-radius:4px;
+    font-size:16px;
+    white-space:nowrap;
+}
+.box2 .left>div .chart>ul>li:nth-child(3):hover::after{
+    content:"Stack";
+    position:absolute;
+    left:100%;
+    bottom:50%;
+    transform:translateX(-50%);
+    color:#56a5cc;
+    padding:5px 10px;
+    border-radius:4px;
+    font-size:16px;
+    white-space:nowrap;
+}
+.box2 .left>div .chart>ul>li:nth-child(4):hover::after{
+    content:"refresh";
+    position:absolute;
+    left:100%;
+    bottom:50%;
+    transform:translateX(-50%);
+    color:#56a5cc;
+    padding:5px 10px;
+    border-radius:4px;
+    font-size:16px;
+    white-space:nowrap;
+}
+.box2 .left>div .chart>ul>li:nth-child(5):hover::after{
+    content:"Data-view";
+    position:absolute;
+    left:100%;
+    bottom:50%;
+    transform:translateX(-50%);
+    color:#56a5cc;
+    padding:5px 10px;
+    border-radius:4px;
+    font-size:16px;
+    white-space:nowrap;
+}
+
+
+
+
+
+
+
+
+
+.box2 .right{
+    flex:1;
+    border:1px solid grey;
+    border-radius:15px;
+    box-shadow:0 -8px 0 0 #0c4270;
+}
+.box2 .right:hover{
+    transform:translateY(-5px);
+    box-shadow:0 5px 5px 5px rgba(0,0,0,0.2);
+    transition:all 0.3s ease;
+}
+.box2 .right p{
+    margin-top:20px;
+    font-size:30px;
+    font-weight:600;
+    text-align:center;
+}
+.box2 .right .right-section{
+    display:flex;
+    flex-wrap:wrap;
+}
+.box2 .right .container{
+    width:410px;
+    height:430px;
+    margin-top:8px;
+    margin-left:20px;
+}
+.box2 .right .container .pie {
+    width: 400px;
+    height: 370px;
+    margin:0 auto;
+}
+
+.chart-part {
+    transform-origin: 50% 50%;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    stroke: white;
+    stroke-width: 0;
+}
+
+.chart-part:hover {
+    transform: scale(1.1);
+    stroke-width: 1;
+    filter: brightness(1.1);
+    z-index: 10;
+}
+
+.box2 .right .container .chart-container{
+    display: flex;
+}
+.box2 .right .container .button{
+    height:25px;
+    line-height: 25px;
+    display: flex;
+    margin-top: 20px;
+    font-size:20px;
+}
+.box2 .right .container .button-left{
+    width:0;
+    height:0;
+    border-top:12px solid transparent;
+    border-right:15px solid #333;
+    border-bottom:12px solid transparent;
+}
+.box2 .right .container .button-right{
+    width:0;
+    height:0;
+    border-top:12px solid transparent;
+    border-left:15px solid #333;
+    border-bottom:12px solid transparent;
+}
+.box2 .right .container .chart-legend {
+    height:25px;
+    width:300px;
+    margin: 20px;
+    display:flex;
+    flex-shrink:0;
+    overflow-x:auto;
+    scrollbar-width:none;
+}
+
+.box2 .right .container .legend-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 5px;
+    flex-shrink:0;
+}
+
+.box2 .right .container .legend-color {
+    width: 30px;
+    height: 15px;
+    margin-right: 8px;
+    border-radius: 25%;
+}
+
+
+
+
+section .box3{
+    width:1800px;
+    margin:0 auto;
+
+}
+.box3 p{
+    font-size:40px;
+    text-align:center;
+}
+.box3>div{
+    display:flex;
+    flex-wrap:wrap;
+    gap:20px;
+    border:0;
+}
+
+.box3>div .box3-lef1{
+    flex:1;
+    border:black 1px solid;
+    margin-right:20px;
+    border-radius:15px;
+    box-shadow:0 -8px 0 0 #0c4270;
+    font-size:20px;
+    font-weight:bold;
+}
+.box3>div .box3-lef1:hover{
+    transform:translateY(-5px);
+    box-shadow:0 5px 5px 5px rgba(0,0,0,0.2);
+    transition:all 0.3s ease;
+}
+.box3>div .box3-right1{
+    flex:1;
+    border:black 1px solid;
+    border-radius:15px;
+    box-shadow:0 -8px 0 0 #0c4270;
+    font-size:20px;
+    font-weight:bold;
+}
+.box3>div .box3-right1:hover{
+    transform:translateY(-5px);
+    box-shadow:0 5px 5px 5px rgba(0,0,0,0.2);
+    transition:all 0.3s ease;
+}
+.box3>div>a{
+    display:block;
+    width:800px;
+    height:80px;
+    font-size:20px;
+    line-height:1.6;
+    font-weight:700;
+}
+.box3 div i{
+    line-height:80px;
+    text-align:center;
+}
+
+section .box4{
+    width:1800px;
+    margin:0 auto;
+    height:525px;
+}
+section .box4 .top{
+    width:100%;
+    height:55px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:40px;
+}
+.box4 .top i{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.box4 .top p{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:40px;
+}
+.box4 .bottom {
+    width:1800px;
+    margin:0 auto;
+    height:450px;
+    display:flex;
+    flex-wrap:wrap;
+}
+.box4 .bottom div{
+    width:860px;
+    height:110px;
+    margin-top:5px;
+    margin-left:10px;
+}
+.box4 .bottom a{
+    font-size:25px;
+    color:#337ab7;
+}
+.box4 .bottom a:hover{
+    text-decoration:underline;
+}
+.box4 .bottom p{
+    font-size:20px;
+}
+section .box5{
+    width:1800px;
+    margin:0 auto;
+    height:600px;
+    display:flex;
+    margin-top:50px;
+    gap:40px;
+}
+.box5 .top{
+    width:100%;
+    height:55px;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.box5 .bottom{
+    margin-top:35px;
+}
+.box5 .bottom p{
+    font-size:25px;
+    margin-top:20px;
+    word-spacing:15px;
+}
+.box5 .bottom a{
+    font-size:25px;
+    color:#337ab7;
+}
+.box5 .bottom a:hover{
+    text-decoration:underline;
+}
+.box5 span{
+    font-size:40px;
+}
+section .box5 .box5-left{
+    flex:1;
+}
+section .box5 .box5-center{
+    flex:1;
+}section .box5 .box5-right{
+     flex:1;
+ }

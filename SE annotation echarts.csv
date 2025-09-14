@@ -1,0 +1,45 @@
+﻿Sample ID,Category,Value
+Sample_04_0003,Promoter,230
+Sample_04_0003,5'UTR,5
+Sample_04_0003,3'UTR,10
+Sample_04_0003,1st Exon,26
+Sample_04_0003,Other Exon,16
+Sample_04_0003,1st Intron,16
+Sample_04_0003,Other Intron,17
+Sample_04_0003,Downstream(<==300),1
+Sample_04_0003,Distal Intergenic,35
+Sample_02_1236,Promoter,292
+Sample_02_1236,5'UTR,8
+Sample_02_1236,3'UTR,23
+Sample_02_1236,1st Exon,34
+Sample_02_1236,Other Exon,38
+Sample_02_1236,1st Intron,14
+Sample_02_1236,Other Intron,21
+Sample_02_1236,Distal Intergenic,45
+Sample_02_1158,Promoter,118
+Sample_02_1158,5‘UTR,3
+Sample_02_1158,3’UTR,6
+Sample_02_1158,1st Exon,18
+Sample_02_1158,Other Exon,12
+Sample_02_1158,1st Intron,5
+Sample_02_1158,Other Intron,6
+Sample_02_1158,Downstream(<==300),1
+Sample_02_1158,Distal Intergenic,32
+Sample_00_0003,Promoter,230
+Sample_00_0003,5'UTR,5
+Sample_00_0003,3'UTR,10
+Sample_00_0003,1st Exon,26
+Sample_00_0003,Other Exon,16
+Sample_00_0003,1st Intron,16
+Sample_00_0003,Other Intron,17
+Sample_00_0003,Downstream(<==300),1
+Sample_00_0003,Distal Intergenic,35
+Sample_00_0001,Promoter,230
+Sample_00_0001,5'UTR,5
+Sample_00_0001,3'UTR,10
+Sample_00_0001,1st Exon,26
+Sample_00_0001,Other Exon,16
+Sample_00_0001,1st Intron,16
+Sample_00_0001,Other Intron,17
+Sample_00_0001,Downstream(<==300),1
+Sample_00_0001,Distal Intergenic,35

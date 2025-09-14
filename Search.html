@@ -1,0 +1,2290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search</title>
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+  <link rel="stylesheet" href="css/Search-section.css">
+  <link rel="stylesheet" href="图标库/font_4941147_qkqjcyouhu/iconfont.css">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"></script>
+  <link rel="preload" href="图标库/font_4941147_lvp3nl2t6kj/iconfont.woff2" as="font" type="font/woff2" crossorigin>
+
+</head>
+<body>
+<header>
+  <div class="header-left">
+    <img src="img/img.png" alt="">
+  </div>
+  <div class="header-right">
+    <div>
+      <a href="Home.html" data-nav="home">Home</a>
+      <a href="Data-Browse.html" data-nav="data-browse">Data-Browse</a>
+      <a href="Search.html">Search</a>
+      <a>
+        Analysis
+        <span></span>
+      </a>
+      <a>Genome-Browse</a>
+      <a>Download</a>
+      <a>Statistics</a>
+      <a>Contact</a>
+      <a>Help</a>
+    </div>
+  </div>
+
+</header>
+
+<section>
+  <div id="show">
+    <p>Search</p>
+    <div class="banner" data-target="hidden1">Search super-enhancers by tissue category-base</div>
+    <div class="hidden" id="hidden1" style="height:430px;">
+      <div class="left">
+        <p>Species</p>
+        <div class="combo-box">
+          <input type="text" id="myinput1.1" value="Human" data-example="human">
+          <div class="dropdown-content" id="myDropdown1.1">
+            <a href="#">Human</a>
+            <a href="#">Mouse</a>
+            <a href="#">Arabidopsis_thaliana</a>
+            <a href="#">Zea_mays</a>
+          </div>
+        </div>
+
+        <p>Biosample type</p>
+        <div class="combo-box">
+          <input type="text" id="myinput1.2" value="Tissue" data-example="Tissue">
+          <div class="dropdown-content" id="myDropdown1.2">
+            <a href="#">Tissue</a>
+          </div>
+        </div>
+
+        <p>Tissue type</p>
+        <div class="combo-box">
+          <input type="text" id="myinput1.3" value="Adipose" data-example="Adipose">
+          <div class="dropdown-content" id="myDropdown1.3">
+            <a href="#">Adipose</a>
+          </div>
+        </div>
+
+
+        <div class="BTN">
+          <button class="search" id="search1">Start search</button>
+          <button class="reset">Reset</button>
+          <button class="example">For example</button>
+        </div>
+      </div>
+
+      <div class="right">
+        <div>
+          <p style="color:red;margin-top:60px;">Function introduction</p>
+          <p>Based on the tissue query, users can query the super-enhancer for all samples of
+            a particular type of tissue.</p>
+        </div>
+        <div>
+          <p style="color:red;margin-top:30px;">Parameter explanation:</p>
+          <p>1) Species: Select Human or Mouse.</p>
+          <p>2) Biosample type: Cell type classification of samples.</p>
+          <p>3) Tissue name: Select the tissue of interest.</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="banner" data-target="hidden2">Search super-enhancers by gene-based</div>
+    <div class="hidden" id="hidden2" style="height:510px;">
+      <div class="left">
+        <p>Gene symbol</p>
+        <div class="combo-box">
+          <input type="text" id="myinput2.1" value="STX12" data-example="STX12">
+          <div class="dropdown-content" id="myDropdown2.1">
+            <a href="#">STX12</a>
+          </div>
+        </div>
+
+        <p>Species</p>
+        <div class="combo-box">
+          <input type="text" id="myinput2.2" value="Tissue" data-example="Tissue">
+          <div class="dropdown-content" id="myDropdown2.2">
+            <a href="#">Tissue</a>
+          </div>
+        </div>
+
+        <p>Strategies/Alorithm</p>
+        <div class="combo-box">
+          <input type="text" id="myinput2.3" value="Human" data-example="Human">
+          <div class="dropdown-content" id="myDropdown2.3">
+            <a href="#">Human</a>
+            <a href="#">Mouse</a>
+          </div>
+        </div>
+        <div class="BTN">
+          <button class="search" id="search2">Start search</button>
+          <button class="reset">Reset</button>
+          <button class="example">For example</button>
+        </div>
+      </div>
+
+      <div class="right">
+        <div>
+          <p style="color:red;margin-top:60px;">Function introduction</p>
+          <p>Users submit a gene and analyze super-enhancers associated
+            with it via relationships between the super-enhancer and associated
+            genes identified under different strategies are obtained from indeterminate samples.
+          </p>
+        </div>
+        <div>
+          <p style="color:red;margin-top:30px;">Parameter explanation:</p>
+          <p>1) Species: Select Human or Mouse.</p>
+          <p>2) Strategies/Algorithm: The closest active, ROSE overlap, ROSE proximal, ROSE closest, Lasso and PreSTIGE.</p>
+          <p>3) Gene symbol: Only gene symbol can be supported.</p>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="banner" data-target="hidden3">Search super-enhancer by genomic region</div>
+    <div class="hidden" id="hidden3" style="height:670px;">
+      <div class="left">
+        <p>Genomic region</p>
+        <div class="combo-box">
+          <input type="text" id="myinput3.1" value="chr1:149735849-149837416" data-example="chr1:149735849-149837416">
+          <div class="dropdown-content" id="myDropdown3.1">
+            <a href="#">chr1:149735849-149837416</a>
+          </div>
+        </div>
+
+        <p>Species</p>
+        <div class="combo-box">
+          <input type="text" id="myinput3.2" value="Human" data-example="Human">
+          <div class="dropdown-content" id="myDropdown3.2">
+            <a href="#">Human</a>
+          </div>
+        </div>
+
+        <p>Biosample type</p>
+        <div class="combo-box">
+          <input type="text" id="myinput3.3" value="Tissue" data-example="Tissue">
+          <div class="dropdown-content" id="myDropdown3.3">
+            <a href="#">Tissue</a>
+            <a href="#">Primary cell</a>
+            <a href="#">In vitro differentiated cell</a>
+            <a href="#">Stem cell</a>
+            <a href="#">Induced</a>
+            <a href="#">pluripotent stem cell line</a>
+            <a href="#">Other</a>
+            <a href="#">Induced pluripotent stem cell</a>
+          </div>
+        </div>
+        <p>Tissue type</p>
+        <div class="combo-box">
+          <input type="text" id="myinput3.4" value="Adipose" data-example="Adipose">
+          <div class="dropdown-content" id="myDropdown3.4">
+            <a href="#">Adipose</a>
+            <a href="#">Adrenal gland</a>
+            <a href="#">Aorta</a>
+            <a href="#">Blood</a>
+            <a href="#">Embryo</a>
+            <a href="#">Esophagus</a>
+            <a href="#">Heart left</a>
+            <a href="#">ventricle</a>
+            <a href="#">Lung</a>
+            <a href="#">Foreskin</a>
+            <a href="#">Dermal fibroblasts</a>
+            <a href="#">Large intestine</a>
+            <a href="#">Muscle of leg</a>
+            <a href="#">Muscle of trunk</a>
+            <a href="#">Ovary</a>
+            <a href="#">Pancreas</a>
+            <a href="#">Placenta</a>
+            <a href="#">Psoas muscle</a>
+            <a href="#">Right cardiac</a>
+            <a href="#">atrium</a>
+            <a href="#">Sigmoid colon</a>
+            <a href="#">Small intestine</a>
+            <a href="#">Spinal cord</a>
+            <a href="#">Spleen</a>
+            <a href="#">Stomach</a>
+            <a href="#">Cord</a>
+            <a href="#">blood</a>
+            <a href="#">Thymus</a>
+            <a href="#">Prostate</a>
+            <a href="#">Muscle</a>
+            <a href="#">Submandibular SalivaryGland</a>
+            <a href="#">Brain and spinal cord</a>
+            <a href="#">Skin</a>
+            <a href="#">Haematopoietic and lymphoid tissue blood</a>
+            <a href="#">Umbilical vein</a>
+            <a href="#">Colon</a>
+            <a href="#">Cervix</a>
+            <a href="#">Liver</a>
+            <a href="#">Haematopoietic and lymphoid tissue bone marrow</a>
+            <a href="#">Haematopietic and lymphoid tissue</a>
+            <a href="#">Mammary gland</a>
+            <a href="#">Peripheral blood</a>
+            <a href="#">Bone</a>
+            <a href="#">Pancreas duct</a>
+            <a href="#">Skeletal muscle</a>
+            <a href="#">Brain</a>
+            <a href="#">Smooth muscle</a>
+            <a href="#">Peritoneal effusion:Derived from metastatic site:peritoneal cavity</a>
+            <a href="#">Ascending aorta</a>
+            <a href="#">Breast epithelium</a>
+            <a href="#">Coronary artery</a>
+            <a href="#">Esophagus muscularis mucosa</a>
+            <a href="#">Esophagus squamous epithelium</a>
+            <a href="#">Gastrocnemius medialis</a>
+            <a href="#">Gastroesophageal sphincter</a>
+            <a href="#">Peyers patch</a>
+            <a href="#">Right atrium</a>
+          </div>
+        </div>
+        <p>Biosample name</p>
+        <div class="combo-box">
+          <input type="text" id="myinput3.5" value="adipose-tissue" data-example="adipose-tissue">
+          <div class="dropdown-content" id="myDropdown3.5">
+            <a href="#">adipose-tissue</a>
+            <a href="#">adrenal-gland_97d</a>
+            <a href="#">aorta</a>
+            <a href="#">B-cell</a>
+            <a href="#">CD14-positive-monocyte</a>
+            <a href="#">naive thymus-derived CD4-positive,alpha-beta-T-cell</a>
+            <a href="#">endodermal-cell</a>
+            <a href="#">esophagus</a>
+            <a href="#">H1-hESC</a>
+            <a href="#">H9</a>
+            <a href="#">heart-left-ventricle</a>
+            <a href="#">IMR-90</a>
+            <a href="#">iPS-DF-19.11</a>
+            <a href="#">iPS-DF-6.9</a>
+            <a href="#">iPS-18axian</a>
+            <a href="#">iPS-20b</a>
+            <a href="#">large-intestine_108d</a>
+            <a href="#">lung_3y</a>
+            <a href="#">lung_30y</a>
+            <a href="#">mesenchymal-stem-cell</a>
+            <a href="#">mesendoderm</a>
+            <a href="#">muscle-of-leg</a>
+            <a href="#">muscle-of-trunk</a>
+            <a href="#">natural-killer-cell</a>
+          </div>
+        </div>
+
+        <div class="BTN">
+          <button class="search" id="search3">Start search</button>
+          <button class="reset">Reset</button>
+          <button class="example">For example</button>
+        </div>
+      </div>
+
+      <div class="right">
+        <div>
+          <p style="color:red;margin-top:60px;">Function introduction</p>
+          <p>In the sample-based advanced query, users determine the scope of
+            the super-enhancer query by determining the sample and genome location
+            for the results of interest.
+          </p>
+        </div>
+        <div>
+          <p style="color:red;margin-top:30px;">Parameter explanation:</p>
+          <p>1) Genomic region: Chromosome,at the start of the chromosome and at the end of the chromosome.</p>
+          <p>2) Species: Select Human or Mouse.</p>
+          <p>3) Biosample type: Cell type classification of samples.</p>
+          <p>4) Tissue type: Samples tissue type.</p>
+          <p>5) Biosample name: Biosample name is made of cell/tissue/cell line name, treatment condition, processing time, etc.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner" data-target="hidden4">Search super-enhancers by TF-based</div>
+    <div class="hidden" id="hidden4" style="height:430px;">
+      <div class="left">
+        <p>TF name</p>
+        <div class="combo-box">
+          <input type="text" id="myinput4.1" value="GATA4" data-example="GATA4">
+          <div class="dropdown-content" id="myDropdown4.1">
+            <a href="#">GATA4</a>
+          </div>
+        </div>
+
+        <p>Species</p>
+        <div class="combo-box">
+          <input type="text" id="myinput4.2" value="Human" data-example="Human">
+          <div class="dropdown-content" id="myDropdown4.2">
+            <a href="#">Human</a>
+            <a href="#">Mouse</a>
+          </div>
+        </div>
+
+        <p>Strategies/Alorithm</p>
+        <div class="combo-box">
+          <input type="text" id="myinput4.3" value="Motif scan" data-example="Motif scan">
+          <div class="dropdown-content" id="myDropdown4.3">
+            <a href="#">Motif scan</a>
+            <a href="#">TF ChIp-seq</a>
+          </div>
+        </div>
+
+        <div class="BTN">
+          <button class="search" id="search4">Start search</button>
+          <button class="reset">Reset</button>
+          <button class="example">For example</button>
+        </div>
+      </div>
+      <div class="right">
+        <div>
+          <p style="color:red;margin-top:60px;">Function introduction</p>
+          <p>Users submit a TF name and SEdb 3.0 will identify the SE bound by
+            the TF and their associated samples. TF related SE are identified by
+            motif scan analysis or TF ChIP-seq data.
+          </p>
+        </div>
+        <div>
+          <p style="color:red;margin-top:30px;">Parameter explanation:</p>
+          <p>1) TF symbol: Only TF symbol can be supported.</p>
+          <p>2) Species: Select Human or Mouse.</p>
+          <p>3) Strategies/Algorithm: TF ChIP-seq and Motif scan.</p>
+        </div>
+      </div>
+    </div>
+    <!--点击小盒子，大盒子出现-->
+    <script>
+      const banners=document.querySelectorAll('.banner');
+      banners.forEach((banner)=>{
+        banner.addEventListener('click',()=>{
+          const targetId=banner.getAttribute('data-target');
+          const hidden=document.getElementById(targetId);
+
+          document.querySelectorAll('.hidden').forEach((item)=>{
+            if(item.id!==targetId)item.classList.remove('active');
+          })
+          document.querySelectorAll('.banner').forEach((item)=>{
+            if(item.getAttribute('data-target')!==targetId)item.classList.remove('active');
+          })
+          banner.classList.toggle('active');
+          hidden.classList.toggle('active');
+        })
+      })
+    </script>
+
+    <!--  复合框-->
+    <script>
+      // 为所有复合框绑定事件
+      document.querySelectorAll('.combo-box').forEach((comboBox) => {
+        const input = comboBox.querySelector('input');
+        const dropdown = comboBox.querySelector('.dropdown-content');
+
+        // 点击输入框显示下拉菜单
+        input.addEventListener('focus', () => {
+          dropdown.classList.add('show');
+        });
+
+        // 失去焦点隐藏下拉菜单
+        input.addEventListener('blur', () => {
+          setTimeout(() => {
+            dropdown.classList.remove('show');
+          }, 200);
+        });
+
+        // 输入时筛选选项
+        input.addEventListener('keyup', function() {
+          const inputValue = this.value.toUpperCase();
+          const items = dropdown.querySelectorAll('a');
+
+          items.forEach((item) => {
+            const txtValue = item.textContent || item.innerText;
+            if (txtValue.toUpperCase().includes(inputValue)) {
+              item.style.display = '';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+
+        // 点击选项填充输入框
+        dropdown.querySelectorAll('a').forEach((item) => {
+          item.addEventListener('click', function() {
+            input.value = this.textContent;
+          });
+        });
+      });
+    </script>
+
+    <!--  reset\example按钮功能实现-->
+    <script>
+      //reset
+      const buttons1=document.querySelectorAll('.reset');
+      buttons1.forEach((button)=>{
+        const container1=button.closest('.left');
+        button.addEventListener('click',()=>{
+          const inputs1=container1.querySelectorAll('input');
+          for(let i=0;i<inputs1.length;i++){
+            inputs1[i].value='All';
+          }
+        })
+      })
+
+      // example
+      const buttons2=document.querySelectorAll('.example');
+      buttons2.forEach((button)=>{
+        const container2=button.closest('.left');
+        button.addEventListener('click',()=>{
+          const inputs2=container2.querySelectorAll('input');
+          for(let i=0;i<inputs2.length;i++){
+            inputs2[i].value=inputs2[i].dataset.example;
+          }
+        })
+      })
+    </script>
+
+    <div class="bottom">
+      <p>Features:</p>
+      <div class="main">
+        <p><span style="color:red">1) Search super-enhancers by tissue category-based:</span>
+          Based on the tissue query, users can query the super-enhancer
+          for all samples of a particular type of tissue.
+        </p>
+        <p><span style="color:red">2) Search super-enhancers by gene-based:</span> In the gene-based query, users can query a gene
+          of interest and SEdb will return all super-enhancers that match the
+          super-enhancer-gene relationship for all samples.
+        </p>
+        <p>
+          <span style="color:red">3) Search super-enhancer by genomic region: </span>
+          In the sample-based advanced query, users determine
+          the scope of the super-enhancer query by determining the sample and genome
+          location for the results of interest.
+        </p>
+        <p>
+          <span style="color:red">4) Search super-enhancers by TF-based: </span>
+          In the TF-based query, users can query a TF of interest
+          and SEdb will return all super-enhancers that match the super-enhancer-TF relationship for all
+          samples.
+        </p>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="results-container1">
+    <p class="top">
+      <span>Search</span>   /   Super-enhancers search result of tissue-based
+    </p>
+    <p>
+      <i class="iconfont icon-view"></i>
+      Search results of tissue type
+    </p>
+    <div>
+      <div class="table-container">
+        <p id="result-count" style="font-size:20px;margin-top:40px;">From 1 to 20 results,Total 5,387 items</p>
+        <div style="float:right;">
+          <p style="font-size:20px;">Search:</p>
+          <input style="width:200px;height:30px;font-size:15px;">
+          <button style="width:100px;height:30px;font-size:20px;">Download</button>
+        </div>
+        <table id="results-table">
+          <thead>
+          <tr>
+            <th>Sample ID</th>
+            <th>Species</th>
+            <th>Data source</th>
+            <th>Tissue Type</th>  <!-- 新增列 -->
+            <th>Biosample type</th>      <!-- 新增列 -->
+            <th>Biosample name</th>
+          </tr>
+          </thead>
+          <tbody>
+          <!-- 数据行将通过 JavaScript 动态生成 -->
+          </tbody>
+        </table>
+
+        <!--      分页-->
+        <div class="pagination-container">
+          <ul class="pagination" id="pagination"></ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!--  start search按钮功能实现-->
+<!--  results-container1-->
+  <script>
+    let tableData = []; // 存储CSV数据
+    const rowsPerPage = 10; // 每页行数
+    let currentPage = 1; // 当前页码
+    let filteredData = []; // 筛选后的数据
+
+    // 异步加载CSV数据
+    async function loadCSVData() {
+      try {
+        console.log('Loading CSV data...');
+        const response = await fetch('SEdb 2.0-a comprehensive human and mouse Super-Enhancer database (3).csv');
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const csvText = await response.text();
+        tableData = parseCSV(csvText);
+        console.log('CSV data loaded successfully:', tableData); // 调试日志
+        return tableData; // 返回解析后的数据
+      } catch (error) {
+        console.error('Error loading CSV file:', error);
+        document.getElementById("result-count").textContent = 'Error loading data. Please try again.';
+        return []; // 返回空数组避免后续错误
+      }
+    }
+  
+// 解析CSV数据
+    function parseCSV(csvText) {
+      const lines = csvText.split('\n').filter(line => line.trim() !== '');
+      if (lines.length === 0) return [];
+      
+      return lines.slice(1).map(line => {
+        const values = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+          .map(v => v.trim().replace(/^"|"$/g, ''));
+        
+        return {
+          id: values[0]?.trim() || '',
+          species: values[1]?.trim() || '',
+          source: values[2]?.trim() || '',
+          Biosample: values[3]?.trim() || '',
+          tissuetype: values[4]?.trim() || '',
+          date: values[5]?.trim() || ''
+        };
+      });
+    }
+
+
+    // 渲染表格和分页
+    function renderTable(data, page = 1) {
+      const tbody = document.querySelector("#results-table tbody");
+      const start = (page - 1) * rowsPerPage;
+      const end = start + rowsPerPage;
+      const paginatedData = data.slice(start, end);
+
+      tbody.innerHTML = paginatedData.map(item => `
+        <tr>
+          <td>${item.id}</td>
+          <td>${item.species}</td>
+          <td>${item.source}</td>
+          <td>${item.tissuetype}</td>
+          <td>${item.Biosample}</td>
+          <td>${item.date}</td>
+        </tr>
+      `).join("");
+
+      renderPagination(data.length, page);
+      updateResultCount(paginatedData.length, data.length, start + 1);
+    }
+
+
+    // 渲染分页控件
+    function renderPagination(totalItems, currentPage) {
+      const totalPages = Math.ceil(totalItems / rowsPerPage);
+      const pagination = document.getElementById("pagination");
+      pagination.innerHTML = "";
+
+      if (totalItems === 0) {
+        pagination.innerHTML = '<li>No data available</li>';
+        return;
+      }
+
+      if (currentPage > 1) {
+        pagination.innerHTML += `
+                <li><a href="#" class="page-link" data-page="${currentPage - 1}">«</a></li>
+            `;
+      }
+      const maxVisiblePages = 5;
+      let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+      let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+      if (endPage - startPage + 1 < maxVisiblePages) {
+        startPage = Math.max(1, endPage - maxVisiblePages + 1);
+      }
+      if (startPage > 1) {
+        pagination.innerHTML += `
+                <li><a href="#" class="page-link" data-page="1">1</a></li>
+                ${startPage > 2 ? '<li><span>...</span></li>' : ''}
+            `;
+      }
+
+      for (let i = startPage; i <= endPage; i++) {
+        pagination.innerHTML += `
+                <li><a href="#" class="page-link ${i === currentPage ? 'active' : ''}"
+                     data-page="${i}">${i}</a></li>
+            `;
+      }
+
+      if (endPage < totalPages) {
+        pagination.innerHTML += `
+                ${endPage < totalPages - 1 ? '<li><span>...</span></li>' : ''}
+                <li><a href="#" class="page-link" data-page="${totalPages}">${totalPages}</a></li>
+            `;
+      }
+
+      if (currentPage < totalPages) {
+        pagination.innerHTML += `
+                <li><a href="#" class="page-link" data-page="${currentPage + 1}">»</a></li>
+            `;
+      }
+      document.querySelectorAll('.page-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          currentPage = parseInt(this.dataset.page);
+          renderTable(filteredData, currentPage);
+        });
+      });
+    }
+
+    // 搜索框搜索功能
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.querySelector('#results-container1 input');
+      searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        filteredData = tableData.filter(item => {
+          return Object.values(item).some(value =>
+                  value.toString().toLowerCase().includes(searchTerm)
+          );
+        });
+        currentPage = 1;
+        renderTable(filteredData, currentPage);
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      console.log('DOM fully loaded');
+      
+      // 加载数据并渲染表格
+      try {
+        await loadCSVData(); // 等待数据加载完成
+        filteredData = [...tableData];
+        renderTable(filteredData, currentPage);
+        
+        // 绑定搜索框事件
+        const searchInput = document.querySelector('#results-container1 input');
+        searchInput.addEventListener('input', function() {
+          const searchTerm = this.value.toLowerCase();
+          filteredData = tableData.filter(item => 
+            Object.values(item).some(value => 
+              value.toString().toLowerCase().includes(searchTerm)
+            )
+          );
+          currentPage = 1;
+          renderTable(filteredData, currentPage);
+        });
+
+      } catch (error) {
+        console.error('Initialization failed:', error);
+      }
+    });
+
+    const sbtn = document.getElementById('search1');
+    sbtn.addEventListener('click', async () => {
+      const showContainer = document.getElementById('show');
+      const resultContaner = document.getElementById('results-container1');
+      showContainer.style.display = 'none';
+      resultContaner.style.display = 'block';
+      await loadCSVData();
+
+      //获取三个符合框的当前值
+      const species=document.getElementById('myinput1.1').value;
+      const biosampleType=document.getElementById('myinput1.2').value;
+      const tissueType=document.getElementById('myinput1.3').value;
+      filteredData=tableData.filter(item=>{
+        const speciesMatch=species==='All'||species===''||item.species.toLowerCase()===species.toLowerCase();
+        const biosampleMatch=biosampleType==='All'||biosampleType===''||item.Biosample.toLowerCase()===biosampleType.toLowerCase();
+        const tissueMatch=tissueType==='All'||tissueType===''||item.tissuetype.toLowerCase()===tissueType.toLowerCase();
+        return speciesMatch&&biosampleMatch&&tissueMatch;
+      })
+      currentPage=1;
+      renderTable(filteredData,currentPage);
+      updateResultCount(filteredData.length);
+    });
+    function updateResultCount(filteredCount, totalCount = filteredCount, startIndex = 1) {
+      const endIndex = Math.min(startIndex + rowsPerPage - 1, filteredCount);
+      document.getElementById("result-count").textContent =
+              `From ${startIndex} to ${endIndex} results, Total ${filteredCount} items`;
+    }
+
+    const backbtn = document.querySelector('#results-container1>.top>span');
+    backbtn.addEventListener('click', () => {
+      const showContainer = document.getElementById('show');
+      const resultContaner = document.getElementById('results-container1');
+      showContainer.style.display = 'block';
+      resultContaner.style.display = 'none';
+    });
+
+  </script>
+
+
+  <div id="results-container2"></div>
+
+  <div id="results-container3">
+    <p class="top">
+      <span>Search</span>   /   Super-enhancers search result of tissue-based
+    </p>
+    <p style="font-size:40px;"><i class="iconfont icon-jishiben"></i>Search result of region <span style="color:red;">(chr1:149735849-149837416)</span></p>
+    <div id="table-container3">
+      <div class="right">
+        <p>Search:<input id="search-bed"></p>
+      </div>
+      <div class="left">
+        <button>Download</button>
+        <p id="bed-result-count">Showing 1 to 10 of 643 entries</p>
+      </div>
+
+      <table id="table3">
+        <thead>
+        <tr>
+          <th>Overlap show</th>
+          <th>SE ID</th>
+          <th>SE Region</th>
+          <th>Species</th>
+          <th>Sample ID</th>
+          <th>Tissue type</th>
+          <th>Biosample name</th>
+          <th>Gene</th>
+          <th>Rank</th>
+          <th>Element</th>
+          <th>Common SNP</th>
+          <th>eQTL</th>
+          <th>Risk SNP</th>
+          <th>TFBS</th>
+          <th>CRISRP Cas9</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <!--      分页容器-->
+      <div class="pagination">
+        <ul class="pagination" id="pagination3"></ul>
+      </div>
+    </div>
+  </div>
+  <!--  表格3的渲染-->
+  <script src="JS/table-container3.js"></script>
+  <!--表格3的分页-->
+  <script src="JS/table-container3的分页功能.js"></script>
+
+
+
+  <!--#table-container3的start search功能实现  -->
+  <script>
+    const button3=document.getElementById('search3');
+    const showcontainer3=document.getElementById('show');
+    const resultscontainer3=document.getElementById('results-container3');
+    button3.addEventListener('click',()=>{
+      showcontainer3.style.display = 'none';
+      resultscontainer3.style.display = 'block';
+    })
+
+    const backbtn3=document.querySelector('#results-container3 .top span')
+    backbtn3.addEventListener('click',()=>{
+      showcontainer3.style.display = 'block';
+      resultscontainer3.style.display = 'none';
+    })
+  </script>
+
+
+  <div id="results-container4">
+    <p class="top">
+      <span>Search</span>   /   Super-enhancers search result of tissue-based
+    </p>
+    <p class="title"><i class="iconfont icon-tubiao-zhuzhuangtu"></i>TF Overview</p>
+
+    <div class="first">
+      <table>
+        <tr>
+          <td style="color:red;">TF symbol:</td>
+          <td>GATA4</td>
+          <td>TF ensembl ID:</td>
+          <td>ENSG00000136574</td>
+        </tr>
+        <tr>
+          <td>TF family:</td>
+          <td>zf-GATA</td>
+          <td>TF entrez ID:</td>
+          <td>2626</td>
+        </tr>
+        <tr>
+          <td>TF name:</td>
+          <td>GATA binding protein 4</td>
+          <td>External links:</td>
+          <td style="display:flex;">
+            <a href="https://www.uniprot.org/uniprotkb/?query=GATA%20binding%20protein%204_HUMAN"><img src="img/img_2.png"></a>
+            <a href="https://www.ncbi.nlm.nih.gov/gene/?term=GATA%20binding%20protein%204"><img src="img/img_3.png"></a>
+            <a><img src="img/img_4.png"></a>
+            <a href="https://www.genecards.org/cgi-bin/carddisp.pl?gene=GATA%20binding%20protein%204"><img src="img/img_5.png"></a>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <p class="title"><i class="iconfont icon-jishiben"></i>Super-enhancer search result of TF-based</p>
+    <div class="second">
+      <div class="top">
+        <div class="active" id="I">TF Identified by ChIP-seq</div>
+        <div id="P">TF Predicted by Motif</div>
+      </div>
+      <div class="bottom" id="bottom1">
+        <div class="title">
+          <label style="font-size:20px;line-height:50px;">SE Biosample name:</label>
+          <select style="width:500px;height:50px;font-size:20px;">
+            <option value="SE_04_0003">SE_04_0003:A549 TEAD4 shRNA TGFb</option>
+            <option value="SE_02_1236">SE_02_1236:MKL1_virus_positive</option>
+            <option value="SE_02_1158">SE_02_1158:MCF7_siYTHDC1_E2</option>
+          </select>
+          <button id="start">Start</button>
+        </div>
+        <div class="sheet">
+          <table data-id="SE_04_0003" class="active">
+            <thead>
+            <tr>
+              <th>TF</th>
+              <th>TF biosample name</th>
+              <th>SE sample ID</th>
+              <th>SE sample tissue type</th>
+              <th>SE sample biosample name</th>
+              <th>SE number</th>
+              <th>SEnumber</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>GATA4</td>
+              <td>A-549</td>
+              <td data-id="Sample_04_0003">Sample_04_0003</td>
+              <td>Lung</td>
+              <td>A549 TEAD4 shRNA TGFb</td>
+              <td>91</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>BJ1-hTERT</td>
+              <td data-id="Sample_04_0003">Sample_04_0003</td>
+              <td>Lung</td>
+              <td>A549 TEAD4 shRNA TGFb</td>
+              <td>210</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>ESO-26</td>
+              <td data-id="Sample_04_0003">Sample_04_0003</td>
+              <td>Lung</td>
+              <td>A549 TEAD4 shRNA TGFb</td>
+              <td>16</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>G296S</td>
+              <td data-id="Sample_04_0003">Sample_04_0003</td>
+              <td>Lung</td>
+              <td>A549 TEAD4 shRNA TGFb</td>
+              <td>33</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>Hep-G2</td>
+              <td data-id="Sample_04_0003">Sample_04_0003</td>
+              <td>Lung</td>
+              <td>A549 TEAD4 shRNA TGFb</td>
+              <td>169</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>KATO-III</td>
+              <td data-id="Sample_04_0003">Sample_04_0003</td>
+              <td>Lung</td>
+              <td>A549 TEAD4 shRNA TGFb</td>
+              <td>37</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>YCC-3</td>
+              <td data-id="Sample_04_0003">Sample_04_0003</td>
+              <td>Lung</td>
+              <td>A549 TEAD4 shRNA TGFb</td>
+              <td>48</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>cardiomyocyte</td>
+              <td data-id="Sample_04_0003">Sample_04_0003</td>
+              <td>Lung</td>
+              <td>A549 TEAD4 shRNA TGFb</td>
+              <td>43</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>foregut</td>
+              <td data-id="Sample_04_0003">Sample_04_0003</td>
+              <td>Lung</td>
+              <td>A549 TEAD4 shRNA TGFb</td>
+              <td>104</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>pancreatic-progenitor</td>
+              <td data-id="Sample_04_0003">Sample_04_0003</td>
+              <td>Lung</td>
+              <td>A549 TEAD4 shRNA TGFb</td>
+              <td>210</td>
+              <td>  </td>
+            </tr>
+            </tbody>
+          </table>
+
+          <table data-id="SE_02_1236">
+            <thead>
+            <tr>
+              <th>TF</th>
+              <th>TF biosample name</th>
+              <th>SE sample ID</th>
+              <th>SE sample tissue type</th>
+              <th>SE sample biosample name</th>
+              <th>SE number</th>
+              <th>SEnumber</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>GATA4</td>
+              <td>A-549</td>
+              <td data-id="Sample_02_1236">Sample_02_1236</td>
+              <td>skin</td>
+              <td>MKL1_virus_positive</td>
+              <td>32</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>BJ1-hTERT</td>
+              <td data-id="Sample_02_1236">Sample_02_1236</td>
+              <td>skin</td>
+              <td>MKL1_virus_positive</td>
+              <td>197</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>ESO-26</td>
+              <td data-id="Sample_02_1236">Sample_02_1236</td>
+              <td>skin</td>
+              <td>MKL1_virus_positive</td>
+              <td>12</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>G296S</td>
+              <td data-id="Sample_02_1236">Sample_02_1236</td>
+              <td>skin</td>
+              <td>MKL1_virus_positive</td>
+              <td>61</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>Hep-G2</td>
+              <td data-id="Sample_02_1236">Sample_02_1236</td>
+              <td>skin</td>
+              <td>MKL1_virus_positive</td>
+              <td>143</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>KATO-III</td>
+              <td data-id="Sample_02_1236">Sample_02_1236</td>
+              <td>skin</td>
+              <td>MKL1_virus_positive</td>
+              <td>22</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>YCC-3</td>
+              <td data-id="Sample_02_1236">Sample_02_1236</td>
+              <td>skin</td>
+              <td>MKL1_virus_positive</td>
+              <td>26</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>cardiomyocyte</td>
+              <td data-id="Sample_02_1236">Sample_02_1236</td>
+              <td>skin</td>
+              <td>MKL1_virus_positive</td>
+              <td>78</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>foregut</td>
+              <td data-id="Sample_02_1236">Sample_02_1236</td>
+              <td>skin</td>
+              <td>MKL1_virus_positive</td>
+              <td>120</td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>pancreatic-progenitor</td>
+              <td data-id="Sample_02_1236">Sample_02_1236</td>
+              <td>skin</td>
+              <td>MKL1_virus_positive</td>
+              <td>246</td>
+              <td> </td>
+            </tr>
+
+            </tbody>
+          </table>
+          <table data-id="SE_02_1158">
+            <thead>
+            <tr>
+              <th>TF</th>
+              <th>TF biosample name</th>
+              <th>SE sample ID</th>
+              <th>SE sample tissue type</th>
+              <th>SE sample biosample name</th>
+              <th>SE number</th>
+              <th>SEnumber</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>GATA4</td>
+              <td>A-549</td>
+              <td data-id="Sample_02_1158">Sample_02_1158</td>
+              <td>Mammary gland</td>
+              <td>MCF7_siYTHDC1_E2</td>
+              <td>47</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>BJ1-hTERT</td>
+              <td data-id="Sample_02_1158">Sample_02_1158</td>
+              <td>Mammary gland</td>
+              <td>MCF7_siYTHDC1_E2</td>
+              <td>149</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>ESO-26</td>
+              <td data-id="Sample_02_1158">Sample_02_1158</td>
+              <td>Mammary gland</td>
+              <td>MCF7_siYTHDC1_E2</td>
+              <td>30</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>G296S</td>
+              <td data-id="Sample_02_1158">Sample_02_1158</td>
+              <td>Mammary gland</td>
+              <td>MCF7_siYTHDC1_E2</td>
+              <td>34</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>Hep-G2</td>
+              <td data-id="Sample_02_1158">Sample_02_1158</td>
+              <td>Mammary gland</td>
+              <td>MCF7_siYTHDC1_E2</td>
+              <td>112</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>KATO-III</td>
+              <td data-id="Sample_02_1158">Sample_02_1158</td>
+              <td>Mammary gland</td>
+              <td>MCF7_siYTHDC1_E2</td>
+              <td>33</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>YCC-3</td>
+              <td data-id="Sample_02_1158">Sample_02_1158</td>
+              <td>Mammary gland</td>
+              <td>MCF7_siYTHDC1_E2</td>
+              <td>57</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>cardiomyocyte</td>
+              <td data-id="Sample_02_1158">Sample_02_1158</td>
+              <td>Mammary gland</td>
+              <td>MCF7_siYTHDC1_E2</td>
+              <td>41</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>foregut</td>
+              <td data-id="Sample_02_1158">Sample_02_1158</td>
+              <td>Mammary gland</td>
+              <td>MCF7_siYTHDC1_E2</td>
+              <td>96</td>
+              <td>  </td>
+            </tr>
+            <tr>
+              <td>GATA4</td>
+              <td>pancreatic-progenitor</td>
+              <td data-id="Sample_02_1158">Sample_02_1158</td>
+              <td>Mammary gland</td>
+              <td>MCF7_siYTHDC1_E2</td>
+              <td>160</td>
+              <td>  </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div class="bottom" id="bottom2">
+        <p style="font-size:25px;color:black;">False</p>
+        <table>
+          <thead>
+          <tr>
+            <th>TF</th>
+            <th>Sample ID</th>
+            <th>Biosample type</th>
+            <th>Tissue type</th>
+            <th>Biosample name</th>
+            <th>SE number</th>
+            <th>Details</th>
+          </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+
+    <p class="title"><i class="iconfont icon-jishiben"></i>Expression of <span style="color:red;">GATA4</span></p>
+    <div class="third-btn">
+      <button>Cell line(ENCODE)</button>
+      <button>Primary cell(ENCODE)</button>
+      <button>Tissue(NCB)</button>
+      <button>Normal tissue(GTEx)</button>
+      <button>Cell line(CCLE)</button>
+    </div>
+    <div class="third"></div>
+
+    <p class="title"><i class="iconfont icon-jishiben"></i>Disease information of <span style="color:red;">GATA4</span></p>
+    <div class="fourth">
+      <p style="font-size:20px;margin-left:40px;">Showing 1 to 10 of 28 entries</p>
+      <table>
+        <thead>
+        <tr>
+          <th style="width:130px;">TF name</th>
+          <th style="width:400px;">Disease name</th>
+          <th style="width:200px;">Disease type</th>
+          <th style="width:180px;">Disease class</th>
+          <th style="width:600px;">Disease semantic type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>GATA4</td>
+          <td>Alcohol Use Disorder</td>
+          <td>disease</td>
+          <td>C25;F03</td>
+          <td>Mental or Behavioral Dysfunction</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Alcoholic Intoxication,Chronic</td>
+          <td>disease</td>
+          <td>C25;F03</td>
+          <td>Mental or Behavioral Dysfunction</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Colorectal Carcinoma</td>
+          <td>disease</td>
+          <td>C04;C06</td>
+          <td>Neoplastic Process</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Colorectal Neoplasms</td>
+          <td>group</td>
+          <td>C04;C06</td>
+          <td>Neoplastic Process</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Cardiomegaly</td>
+          <td>phenotype</td>
+          <td>C14;C23</td>
+          <td>Finding</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Ventricular Septal Defects</td>
+          <td>group</td>
+          <td>C14;C16</td>
+          <td>Congenital Abnormality</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Diaphragmatic Hernia</td>
+          <td>phenotype</td>
+          <td>C23</td>
+          <td>Anatomical Abnormality</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Myocardial Infarction</td>
+          <td>disease</td>
+          <td>C14</td>
+          <td>Disease or Syndrome</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Disorders of Sex Development</td>
+          <td>group</td>
+          <td>C12;C13;C16;C19</td>
+          <td>Congenital Abnormality</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Tetralogy of Fallot</td>
+          <td>disease</td>
+          <td>C14;C16</td>
+          <td>Congenital Abnormality</td>
+        </tr>
+
+        <tr>
+          <td>GATA4</td>
+          <td>Alcohol abuse</td>
+          <td>disease</td>
+          <td>C25;F03</td>
+          <td>Mental or Behavioral Dysfunction</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Congenital diaphragmatic hernia</td>
+          <td>disease</td>
+          <td>C16;C23</td>
+          <td>Disease or Syndrome</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Congenital hernia of foramen of Morgagni</td>
+          <td>disease</td>
+          <td>C16;C23</td>
+          <td>Congenital Abnormality</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Congenital hernia of foramen of Bochdalek</td>
+          <td>disease</td>
+          <td>C16;C23</td>
+          <td>Congenital Abnormality</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Ostium secundum atrial septal defect</td>
+          <td>disease</td>
+          <td>C14;C16</td>
+          <td>Congenital Abnormality</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Partial atrioventricular canal</td>
+          <td>disease</td>
+          <td>C14;C16</td>
+          <td>Congenital Abnormality</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Cardiac Hypertrophy</td>
+          <td>phenotype</td>
+          <td>C14;C23</td>
+          <td>Pathologic Function</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>ATRIOVENTRICULAR CANAL DEFECT</td>
+          <td>phenotype</td>
+          <td>C14;C16</td>
+          <td>Anatomical Abnormality</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Atrioventricular Septal Defect</td>
+          <td>disease</td>
+          <td>C14;C16</td>
+          <td>Congenital Abnormality</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>TColorectal Cancer</td>
+          <td>disease</td>
+          <td>C04;C06</td>
+          <td>Neoplastic Process</td>
+        </tr>
+
+        <tr>
+          <td>GATA4</td>
+          <td>Atrial septal defect 2</td>
+          <td>disease</td>
+          <td>C14;C16</td>
+          <td>Congenital Abnormality; Disease or Syndrome</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>ATRIAL FIBRILLATION, FAMILIAL, 1 (disorder)</td>
+          <td>disease</td>
+          <td>C16;C23</td>
+          <td>Disease or Syndrome</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Chromosome 8, monosomy 8p23 1</td>
+          <td>disease</td>
+          <td>C23</td>
+          <td>Disease or Syndrome</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>VENTRICULAR SEPTAL DEFECT 1</td>
+          <td>disease</td>
+          <td></td>
+          <td>Congenital Abnormality</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>ATRIOVENTRICULAR SEPTAL DEFECT 4</td>
+          <td>disease</td>
+          <td></td>
+          <td>Congenital Abnormality</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>Intellectual Disability</td>
+          <td>group</td>
+          <td>C10;C23;F01;F03</td>
+          <td>Mental or Behavioral Dysfunction</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>TESTICULAR ANOMALIES WITH OR WITHOUT CONGENITAL HEART DISEASE</td>
+          <td>disease</td>
+          <td></td>
+          <td>Disease or Syndrome</td>
+        </tr>
+        <tr>
+          <td>GATA4</td>
+          <td>46,XY partial gonadal dysgenesis</td>
+          <td>phenotype</td>
+          <td></td>
+          <td>Disease or Syndrome</td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="search">
+        <p style="font-size:20px;line-height:60px;margin-top:20px;">search:</p>
+        <input style="width:300px;height:60px;margin-top:20px;font-size:25px;" type="text">
+      </div>
+      <p id="Select option" style="font-size:25px;">show
+        <select id="rows-per-page" style="font-size:25px;margin-top:0;">
+          <option value="20">10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select>
+        entries
+      </p>
+
+      <div class="pagination-container" style="margin-left:1150px;">
+        <ul class="pagination"></ul>
+      </div>
+    </div>
+  </div>
+  <!--  table分页-->
+  <script src="JS/fourth-table.js"></script>
+
+
+
+  <!--实现TF Identified by ChIP-seq和TF Predicted by Motif的切换-->
+  <!--  表格的切换-->
+  <script src="JS/table-container4.js"></script>
+
+  <div id="id-resultscontainer">
+    <p class="top">
+      <span style="color:#337ab7;">Browse</span>   /   Super-enhancers search result of tissue-based
+    </p>
+    <div class="main">
+      <div class="main">
+        <p class="title">
+          <i class="iconfont icon-tubiao-zhuzhuangtu"></i>
+          Sample overview
+        </p>
+        <div class="first">
+          <div class="top">
+            <div id="first-top1" style="box-shadow:0 -8px 0 0 #951e9f;">
+              <table>
+                <tr>
+                  <td style="font-weight:bold;">Species:</td>
+                  <td id="Species"></td>
+                </tr>
+                <tr>
+                  <td style="font-weight:bold;">Biosample type:</td>
+                  <td id="Biosample-type"></td>
+                </tr>
+                <tr>
+                  <td style="font-weight:bold;">Tissue type:</td>
+                  <td id="Tissue-type"></td>
+                </tr>
+                <tr>
+                  <td style="font-weight:bold;">Data source:</td>
+                  <td id="Data-source"></td>
+                </tr>
+                <tr style="color:red;font-weight:bold;">
+                  <td>Biosample name:</td>
+                  <td id="Biosample-name"></td>
+                </tr>
+                <tr>
+                  <td>Sample ID:</td>
+                  <td id="Sample ID"></td>
+                </tr>
+              </table>
+              <button>ChIPQC report</button>
+            </div>
+
+            <div id="first-top2" style="box-shadow:0 -8px 0 0 #951e9f;">
+              <div class="echarts-container"></div>
+            </div>
+
+
+          </div>
+          <div class="bottom">
+            <div id="first-bottom1" style="box-shadow:0 -8px 0 0 #951e9f;">
+
+              <div class="wordcloud" id="wordcloud-genes1"></div>
+            </div>
+            <div id="first-bottom2" style="box-shadow:0 -8px 0 0 #951e9f;">
+              <div class="wordcloud" id="wordcloud-genes2"></div>
+            </div>
+          </div>
+        </div>
+
+        <button>Download</button>
+        <p class="title">
+          <i class="iconfont icon-jishiben"></i>
+          Search result
+        </p>
+        <div class="second">
+          <div>
+            <button>Download</button>
+            <p id="results-count">Showing 1 to 10 of 204 entries</p>
+          </div>
+          <table>
+            <thead>
+            <tr>
+              <th>SE ID</th>
+              <th>SE Region</th>
+              <th>Size</th>
+              <th>Rank</th>
+              <th>Element</th>
+              <th>Common SNP</th>
+              <th>eQTL</th>
+              <th>Risk SNP</th>
+              <th>TFBS</th>
+              <th>CRISPR Cas9</th>
+              <th>Gene</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <p class="title">
+          <i class="iconfont icon-tubiao-zhuzhuangtu"></i>
+          SE annotation visualization
+        </p>
+        <div class="third">
+          <div id="third1"></div>
+          <div id="third2"></div>
+        </div>
+
+        <p class="title">
+          <i class="iconfont icon-tubiao-zhuzhuangtu"></i>
+          Information description of sample and annotation
+        </p>
+        <div class="fourth">
+          <table id="fourth-table">
+            <tr>
+              <td>Case ID:</td>
+              <td id="Case"><span style="color:red;">Name:</span></td>
+            </tr>
+            <tr>
+              <td>Input ID:</td>
+              <td id="Input"><span style="color:red;">Name:</span></td>
+            </tr>
+            <tr>
+              <td>Common SNP:</td>
+              <td style="color:#337ab7;">dbSNP</td>
+            </tr>
+            <tr>
+              <td>eQTL:</td>
+              <td style="color:#337ab7;">GTEx,HaploReg v4.1,PancanQTL</td>
+            </tr>
+            <tr>
+              <td>Risk SNP:</td>
+              <td style="color:#337ab7;">GWAS Catelog,GWASdb v2.0</td>
+            </tr>
+            <tr>
+              <td>TFBS:</td>
+              <td style="color:#337ab7;">TFBS Conserved of UCSC</td>
+            </tr>
+            <tr>
+              <td>CRISPR/Cas9 target site:</td>
+              <td style="color:#337ab7;">CRISPR Targets of UCSC</td>
+            </tr>
+
+          </table>
+        </div>
+
+        <p class="title">
+          <i class="iconfont icon-tubiao-zhuzhuangtu"></i>
+          Software and parameters used
+        </p>
+        <div class="fifth">
+          <table>
+            <tr>
+              <td style="font-weight:bold;">Read Mapping:</td>
+              <td>bowtie(v2.5.4)-p 10 -x-S-U</td>
+            </tr>
+            <tr>
+              <td style="font-weight:bold;">Peak Calling:</td>
+              <td>macs2 callpeak-t-c-f BAM -B -g hs(mm)-q 0.01 --keep-dup=auto</td>
+            </tr>
+            <tr>
+              <td style="font-weight:bold;">Stitching Distance:</td>
+              <td>12.5kb</td>
+            </tr>
+            <tr>
+              <td style="font-weight:bold;">TSS Exclusive Zone:</td>
+              <td>+/-2kb</td>
+            </tr>
+          </table>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+
+
+    //加载CSV数据
+    async function loadCSVData(){
+      try{
+        const response=await fetch('SEdb 2.0-a comprehensive human and mouse Super-Enhancer database (3).csv');
+        if(!response.ok){
+          throw new Error(`HTTP error! status:${response.status}`);
+        }
+        const csvText=await response.text();
+        tableData=parseCSV(csvText);
+        filteredData=[...tableData];
+        return tableData;
+      }catch(error){
+        console.error('Error loading CSV file:',error);
+        return [];
+      }
+    }
+    //解析CSV数据
+    function parseCSV(csvText) {
+      const lines = csvText.split('\n').filter(line => line.trim() !== '');
+      if (lines.length === 0) return [];
+
+
+      return lines.slice(1).map(line => {
+        const values = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+                .map(v => v.trim().replace(/^"|"$/g, ''));
+
+
+        return {
+          id: values[0]?.trim() || '',
+          species: values[1]?.trim() || '',
+          source: values[2]?.trim() || '',
+          Biosample: values[3]?.trim() || '',
+          tissuetype: values[4]?.trim() || '',
+          date: values[5]?.trim() || ''
+        };
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loadCSVData();
+    })
+
+    async function loadCSVData1(){
+      try{
+        const response=await fetch('Information description of sample.csv');
+        if(!response.ok){
+          throw new Error(`HTTP error! status:${response.status}`);
+        }
+        const csvText=await response.text();
+        tableData1=parseCSV1(csvText);
+        filteredData1=[...tableData1];
+        return tableData1;
+      }catch(error){
+        console.error('Error loading CSV file:',error);
+        return [];
+      }
+    }
+    //解析CSV数据
+    function parseCSV1(csvText) {
+      const lines = csvText.split('\n').filter(line => line.trim() !== '');
+      if (lines.length === 0) return [];
+
+
+      return lines.slice(1).map(line => {
+        const values = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+                .map(v => v.trim().replace(/^"|"$/g, ''));
+
+
+        return {
+          id: values[0]?.trim() || '',
+          Case: values[1]?.trim() || '',
+          Input: values[2]?.trim() || '',
+        };
+      });
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      loadCSVData1();
+    })
+
+
+    //解析echart.csv文件
+    let chromosomeData = []; // 存储所有样本的染色体数据
+
+    async function loadChromosomeData() {
+      const response = await fetch('echart.csv');
+      const csvText = await response.text();
+      const lines = csvText.split('\n').filter(line => line.trim() !== '');
+
+      // 提取表头（染色体名称）
+      const headers = lines[0].split(',').slice(2);
+
+      // 提取数据行
+      chromosomeData = lines.slice(1).map(line => {
+        const values = line.split(',');
+        const sampleId = values[0].trim();
+        const counts = values.slice(2).map(v => parseInt(v.trim()) || 0);
+
+        return {
+          sampleId,
+          data: headers.map((chr, index) => ({
+            chromosome: chr,
+            count: counts[index]
+          }))
+        };
+      });
+    }
+
+    function renderRingChart(chromosomeCounts){
+      const filteredData=chromosomeCounts.filter(item=>item.count>0);
+      //初始化
+      const chart=echarts.init(document.querySelector('.echarts-container'));
+      const option = {
+        title: {
+          text:'Super-enhancers Distribution of chromosomes',
+          left:'center',
+          textStyle: {
+            fontSize: 25 // 调整图例文字大小
+          }
+        },
+        tooltip: {
+          trigger:'item',
+          formatter: '{a} <br/>{b}: {c} ({d}%)'
+        },
+        legend: {
+          type: 'scroll',
+          orient: 'horizontal',
+
+          bottom:10,
+          data: filteredData.map(item=>item.chromosome),
+          textStyle: {
+            fontSize: 20 // 调整图例文字大小
+          }
+        },
+        series:[{
+          name: 'Chromosome Distribution',
+          type: 'pie',
+          radius: ['40%', '70%'],
+          center:['50%', '45%'],
+          avoidLabelOverlap: false,
+          label: {
+            show: false
+          },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: '18',
+              fontWeight: 'bold'
+            }
+          },
+          data:filteredData.map(item=>({
+            value:item.count,
+            name:item.chromosome
+          })),
+          emphasis: {
+            scale: true,
+            scaleSize: 1.5,
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0,0,0,0.5)'
+            }
+          }
+        }]
+      };
+      chart.setOption(option);
+      window.addEventListener('resize',()=>chart.resize());
+    }
+    //#third1的Super-enhancers Distribution of chromosomes 圆环图
+    async function renderSEAnnotationChart(sampledId){
+      const response=await fetch('SE annotation echarts.csv');
+      const csvText=await response.text();
+
+      const lines=csvText.split('\n').filter(line=>line.trim()!=='');
+      const headers=lines[0].split(',').map(h=>h.trim());
+
+      const sampleData=lines.slice(1)
+              .filter(line=>line.startsWith(sampledId))
+              .map(line=>{
+                const values=line.split(',');
+                return{
+                  category:values[1].trim(),
+                  value:parseInt(values[2].trim())
+                }
+              })
+      //准备图表数据
+      const chartData=sampleData.map(item=>({
+        name:item.category,
+        value:item.value
+      }))
+      //初始化图表
+      const chart=echarts.init(document.getElementById('third1'));
+      //配置图表选项
+      const option = {
+        title: {
+          text:'Super-enhancers Distribution of chromosomes',
+          left:'center',
+          textStyle: {
+            fontSize: 25 // 调整图例文字大小
+          }
+        },
+        tooltip: {
+          trigger:'item',
+          formatter: '{a} <br/>{b}: {c} ({d}%)'
+        },
+        legend: {
+          type: 'scroll',
+          orient: 'horizontal',
+
+          bottom:10,
+          data: chartData.map(item=>item.name),
+          textStyle: {
+            fontSize: 20 // 调整图例文字大小
+          }
+        },
+        series:[{
+          name: 'Annotation',
+          type: 'pie',
+          radius: ['40%', '70%'],
+          center:['50%', '45%'],
+          avoidLabelOverlap: false,
+          label: {
+            show: false
+          },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: '18',
+              fontWeight: 'bold'
+            }
+          },
+          data:chartData,
+          emphasis: {
+            scale: true,
+            scaleSize: 1.5,
+            itemStyle: {
+              shadowBlur: 10,
+              shadowOffsetX: 0,
+              shadowColor: 'rgba(0,0,0,0.5)'
+            }
+          }
+        }]
+      }
+      chart.setOption(option);
+      window.addEventListener('resize',()=>chart.resize());
+    }
+
+    // 页面加载时初始化数据
+    document.addEventListener('DOMContentLoaded', () => {
+      loadChromosomeData();
+    });
+
+    //wordcloud
+    let geneExpressionData=[];
+    async function loadGeneExpressionData() {
+      try {
+        const response = await fetch('super-enhaner associated genes wordcloud.csv');
+        const response2=await fetch('super-enhaner associated TF wordcloud');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const csvText = await response.text();
+        const csvText2=await response2.text();
+        geneExpressionData = parseGeneExpressionCSV(csvText);
+        geneExpressionData2=parseGeneExpressionCSV(csvText2);
+      } catch (error) {
+        console.error('Error loading gene expression data:', error);
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      loadGeneExpressionData();
+    })
+    // 解析基因表达CSV数据
+    function parseGeneExpressionCSV(e) {
+      const lines = e.split('\n').filter(line => line.trim() !== '');
+      if (lines.length === 0) return [];
+
+      // 移除可能的UTF-8 BOM字符
+      const headerLine = lines[0].replace(/^\uFEFF/, '');
+      const headers = headerLine.split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+
+      return lines.slice(1).map(line => {
+        const values = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
+                .map(v => v.trim().replace(/^"|"$/g, ''));
+
+        return {
+          sampleId: values[0] || '',
+          gene: values[1] || '',
+          expression: parseInt(values[2]) || 0
+        };
+      });
+    }
+
+
+    function renderGeneWordCloud(sampleId) {
+      // 过滤出匹配的基因数据
+      const matchedGenes = geneExpressionData.filter(item => item.sampleId === sampleId);
+
+      if (matchedGenes.length === 0) {
+        console.warn(`No gene data found for sample: ${sampleId}`);
+        return;
+      }
+
+      // 准备词云数据
+      const wordCloudData = matchedGenes.map(gene => ({
+        name: gene.gene,
+        value: gene.expression,
+        textStyle: {
+          color: getRandomColor() // 自定义颜色函数
+        }
+      }));
+
+      // 初始化词云图表
+      const wordcloud1 = echarts.init(document.getElementById('wordcloud-genes1'));
+      const wordcloud2=echarts.init(document.getElementById('wordcloud-genes2'));
+
+      const option = {
+        title: {
+          text: 'Super-enhancer Associated Genes',
+          left: 'center',
+          textStyle: {
+            fontSize: 25
+          }
+        },
+        tooltip: {
+          show: true,
+          formatter: function(params) {
+            return `${params.name}: ${params.value}`;
+          }
+        },
+        series: [{
+          type: 'wordCloud',
+          shape: 'circle',
+          left: 'center',
+          top: 'center',
+          width: '90%',
+          height: '80%',
+          right: null,
+          bottom: null,
+          sizeRange: [12, 40],
+          rotationRange: [-90, 90],
+          rotationStep: 45,
+          gridSize: 12,
+          drawOutOfBound: false,
+          textStyle: {
+            fontFamily: 'sans-serif',
+            fontWeight: 'bold',
+            color: function () {
+              return getRandomColor();
+            }
+          },
+          emphasis: {
+            focus: 'self',
+            textStyle: {
+              shadowBlur: 10,
+              shadowColor: '#333'
+            }
+          },
+          data: wordCloudData
+        }]
+      };
+
+      wordcloud1.setOption(option);
+      wordcloud2.setOption(option);
+      window.addEventListener('resize', wordcloud1.resize);
+    }
+
+    // 辅助函数 - 生成随机颜色
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+
+    //双向水平柱状图
+    let annotationData=[];
+    async function loadAnnotationData(){
+      try{
+        const response=await fetch('SE annotation visualization.csv');
+        if(!response.ok) throw new Error('HTTP error!Status:,${response.status}');
+        const csvText=await response.text();
+        annotationData=parseAnnotationCSV(csvText);
+        console.log('Parsed annotation data:',annotationData);
+      }catch(error){
+        console.error('Error loading annotation data:',error);
+      }
+    }
+
+    function parseAnnotationCSV(csvText){
+      const lines=csvText.split('\n').filter(line=>line.trim()!=='');
+      if(lines.length===0) return[];
+      const headers=lines[0].split(',').map(h=>h.trim());
+      return lines.slice(1).map(line=>{
+        const values=line.split(',').map(v=>v.trim());
+        const sample={};
+
+        for(let i=0;i<headers.length;i++){
+          sample[headers[i]]=values[i];
+        }
+        return sample;
+      })
+    }
+
+    function renderBarChart(sampleData) {
+      if (!sampleData) {
+        console.error('No sample data provided for bar chart');
+        return;
+      }
+
+      console.log('Sample data for bar chart:', sampleData); // 调试日志
+
+      const barchart = echarts.init(document.getElementById('third2'));
+
+
+      const ranges=[
+        {name:'0-1kb',field:'0-1kb',color:'#5470C6'},
+        {name:'1-3kb',field:'1-3kb',color:'#91CC75'},
+        {name:'3-5kb',field:'3-5kb',color:'#FAC858'},
+        {name:'5-10kb',field:'5-10kb',color:'#EE6666'},
+        {name:'10-100kb',field:'10-100kb',color:'#73C0DE'},
+        {name:'>100kb',field:'100kb',color:'#3BA272'},
+      ];
+      const leftseries=ranges.map(range=>({
+        name:range.name,
+        type:'bar',
+        stack:'total',
+        barWidth:200,
+        data:[-parseFloat(sampleData[range.field]||0)],
+        itemsStyle:{color:range.color},
+        label:{
+          show:true,
+          position:'right',
+          formatter:params=>Math.abs(params.value)+'%'
+        }
+      }))
+      const rightseries=ranges.map(range=>({
+        name:range.name,
+        type:'bar',
+        stack:'total',
+        barWidth:200,
+        data:[parseFloat(sampleData[range.field]||0)],
+        itemsStyle:{color:range.color},
+        label:{
+          show:true,
+          position:'right',
+          formatter:params=>params.value+'%'
+        }
+      }))
+
+      const option = {
+        title: {
+          text: `文本大小分布-${sampleData['Sample ID'] || 'Unknown'}`,
+          left: 'center',
+          textStyle: { fontSize: 25 }
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: { type: 'shadow' },
+          formatter: params => {
+            return params.map(param=>{
+              const value=Math.abs(param.value);
+              return `${param.seriesName}:${param.value}%`;
+            }).join('<br/>');
+          }
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          top:'15%',
+          containLabel: true
+        },
+        yAxis: {
+          type: 'category',
+          data: ['Size Distribution'],
+          axisLine: {
+            show: true,
+            lineStyle:{
+              color:'#333'
+            }
+          },
+          axisTick: { show: false },
+          axisLabel:{
+            fontSize:16
+          }
+        },
+        xAxis: {
+          type: 'value',
+          min: -100,
+          max: 100,
+          axisLine:{
+            lineStyle:{
+              color:'#333'
+            }
+          },
+          axisLabel: {
+            formatter:function(value){
+              return Math.abs(value)+'%';
+            },
+            fontSize:14
+          },
+          splitLine:{
+            lineStyle:{
+              type:'dashed'
+            }
+          }
+        },
+        legend:{
+          data:ranges.map(r=>r.name),
+          top:50,
+          textStyle:{fontSize:14}
+        },
+        series:[...leftseries,...rightseries]
+      };
+
+      barchart.setOption(option);
+      window.addEventListener('resize', () => barchart.resize());
+    }
+
+
+
+    document.querySelectorAll('.sheet table td:nth-child(3)').forEach(cell => {
+      cell.addEventListener('click', async function() {
+        const precontainer = document.getElementById('results-container4');
+        const Nowcontainer = document.getElementById('id-resultscontainer');
+        const sampleId = this.textContent.trim();
+
+        precontainer.style.display = 'none';
+        Nowcontainer.style.display = 'block';
+
+        updateID(sampleId);
+        update(sampleId);
+        update1(sampleId);
+
+        // 确保所有数据加载完成
+        await Promise.all([
+          loadChromosomeData(),
+          loadGeneExpressionData(),
+          loadAnnotationData()
+        ]);
+
+        const matchedData = chromosomeData.find(item => item.sampleId === sampleId);
+        const matchedAnnotation = annotationData.find(item => item['Sample ID'] === sampleId);
+
+        if (matchedData) renderRingChart(matchedData.data);
+        renderSEAnnotationChart(sampleId);
+        renderGeneWordCloud(sampleId);
+
+        if (matchedAnnotation) {
+          console.log('Found annotation data:', matchedAnnotation);
+          renderBarChart(matchedAnnotation);
+        } else {
+          console.warn('No annotation data found for sample:', sampleId);
+        }
+      });
+    });
+
+
+    function updateID(content){
+      document.getElementById('Sample ID').textContent=
+              `${content}`;
+    }
+
+    function update(SampleID){
+
+      const cleanID=SampleID.trim();
+
+      const foundItem=tableData.find(item=>item.id===SampleID);
+      if(foundItem){
+        document.getElementById('Species').textContent=foundItem.species;
+        document.getElementById('Biosample-type').textContent=foundItem.Biosample;
+        document.getElementById('Tissue-type').textContent=foundItem.tissuetype;
+        document.getElementById('Data-source').textContent=foundItem.source;
+        document.getElementById('Biosample-name').textContent=foundItem.date;
+      }else{
+        console.warn(`No Sample ID found:`,cleanID);
+      }
+    }
+
+    function update1(SampleID){
+
+      const cleanID=SampleID.trim();
+      const foundItem=tableData1.find(item=>item.id===SampleID);
+      if(foundItem){
+        const CaseTd=document.getElementById('Case');
+        const spanElement1=CaseTd.querySelector('span');
+        CaseTd.innerHTML=`${spanElement1.outerHTML}${foundItem.Case}`
+
+        const InputTd=document.getElementById('Input');
+        const spanElement2=InputTd.querySelector('span');
+        InputTd.innerHTML=`${spanElement2.outerHTML}${foundItem.Input}`
+
+      }else{
+        console.warn(`No Sample ID found:`,cleanID);
+      }
+    }
+
+
+
+  </script>
+  <!--从 Data-borwse页面跳转到Search页面的id-resultscontainer并渲染图形和表格-->
+  <script>
+    document.addEventListener('DOMContentLoaded',function(){
+      const urlParams=new URLSearchParams(window.location.search);
+      const sampleId=urlParams.get('SampleId');
+
+      if(sampleId) {
+        displaySearchResults(sampleId);
+      }
+    })
+    function displaySearchResults(sampleId){
+
+      // 隐藏所有结果容器
+      document.getElementById('show').style.display = 'none';
+      document.getElementById('results-container1').style.display = 'none';
+      document.getElementById('results-container2').style.display = 'none';
+      document.getElementById('results-container3').style.display = 'none';
+      document.getElementById('results-container4').style.display = 'none';
+
+      // 显示目标容器
+      const resultsContainer = document.getElementById('id-resultscontainer');
+      resultsContainer.style.display = 'block';
+      console.log('id-resultscontainer以显示');
+
+      // 更新页面信息
+      updateID(sampleId);
+
+      // 加载并渲染数据
+      Promise.all([
+        loadChromosomeData(),
+        loadGeneExpressionData(),
+        loadCSVData(),
+        loadCSVData1(),
+        loadAnnotationData()
+      ]).then(() => {
+        update(sampleId);
+        update1(sampleId);
+        const matchedData = chromosomeData.find(item => item.sampleId === sampleId);
+        if (matchedData) {
+          renderRingChart(matchedData.data);
+        }
+        const matchedAnnotation=annotationData.find(item=>item['Sample ID']===sampleId);
+        if(matchedAnnotation){
+          renderBarChart(matchedAnnotation);
+        }
+
+        renderSEAnnotationChart(sampleId);
+        renderGeneWordCloud(sampleId);
+      }).catch(error => {
+        console.error('Error loading data:', error);
+      });
+    }
+
+  </script>
+</section>
+
+
+
+
+<footer>
+  <hr style="height:10px;background-color:#f7901d;border:none;margin-top:10px;">
+  <div class="footer-1">
+    <a href="Home.html">Home<span>|</span></a>
+    <a href="Data-Browse.html">Data-Browse<span>|</span></a>
+    <a href="Search.html">Search</a>
+    <a>Analysis<span>|</span></a>
+    <a>Genome-Browse<span>|</span></a>
+    <a>Download<span>|</span></a>
+    <a>Statistics<span>|</span></a>
+    <a>Contact<span>|</span></a>
+    <a>Help</a>
+
+  </div>
+  <div class="footer-1">
+    <ul>
+      <li>Copyright  HMU<span>|</span></li>
+      <li> 黑ICP备16009434号-1<span>|</span></li>
+      <li>  黑ICP备16009434号-1<span>|</span></li>
+      <li>Li C Lab</li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
